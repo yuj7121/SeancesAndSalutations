@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 /**
  * <h1> Dialogue </h1>
- * This class is the Dialogue class which will display dialogues.
+ * This class is the Tutorial class which will display tutorial dialogue.
  * 
  * <p>
  *  
@@ -17,7 +17,7 @@ import java.awt.event.*;
  * </p>
  */
 
-public class Dialogue extends JPanel {
+public class Tutorial extends JPanel {
    /** This Image variable stores the background image */
    private Image bg;
    /** This Image variable stores the instructions image */
@@ -42,7 +42,7 @@ public class Dialogue extends JPanel {
    * initializing variables using parameters
    *
    */
-   public Dialogue(String name) {
+   public Tutorial(String familiarName, String textsName) {
       
       font = new Font("georgia", Font.PLAIN, 24); 
       try{
@@ -51,7 +51,7 @@ public class Dialogue extends JPanel {
          box = box.getScaledInstance(1200, 300, Image.SCALE_DEFAULT);
          witch1 = ImageIO.read(new File("lib/images/witch1.png"));
          witch2 = ImageIO.read(new File("lib/images/witch2.png"));
-         familiar = ImageIO.read(new File("lib/images/"+name+".png"));
+         familiar = ImageIO.read(new File("lib/images/"+familiarName+".png"));
          dialogueIndex = 0;
       }
       catch (IOException e) {
@@ -59,7 +59,7 @@ public class Dialogue extends JPanel {
       }
 
       try {
-         Scanner file = new Scanner(new File("lib/dialogues/"+name+".txt"));
+         Scanner file = new Scanner(new File("lib/dialogues/"+textsName+".txt"));
          while (file.hasNext())
          {
             String nextLine = file.nextLine();

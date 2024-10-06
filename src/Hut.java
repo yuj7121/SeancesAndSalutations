@@ -54,10 +54,10 @@ public class Hut extends JPanel implements MouseListener, MouseMotionListener{
       int x = e.getX();
       int y = e.getY();
       if(x>200 && x<500 && y>70 && y<770){
-         go = 0;
+         go = 1;
       }
       if(x>980 && x<1280 && y>70 && y<770){
-         go = 1;
+         go = 2;
       }
    }
 

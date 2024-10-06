@@ -35,7 +35,6 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
     private int element1;
     private int element2;
     private int result;
-    private int currResult;
     private Image locked;
     private boolean go; //whether the user clicked the go button or not
     private boolean exit; //exit this screen
@@ -61,23 +60,19 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         collected = c;
         icons = new Image[30];
         bigIcons = new Image[30];
-        names = new String[] {"Reeds", "Drop of Blood", "Toadstool", "Crowberry", "Foxglove", 
-            "Obsidian", "Pixie Dust", "Dubious Potion", "Opalescent Eyeball", "Shiny Skull", 
-            "Spirit in an Hourglass", "Bar of Gold", "Icy Scale", "Cloud in a Bottle", "Humming Geode", 
-            "Heart of the Forest", "Fire in a Marble"};
-        desc = new String[15]; //item descriptions
+        names = new String[30];
+        desc = new String[16]; //item descriptions
         go = false;
         exit = false;
         element1 = -1;
         element2 = -1;
         result = -1;
-        currResult = -1;
         showBox = false;
 
         iconNum = 17;
-        iconSize = 150;
-        iconStartx = 700;
-        iconStarty = 100;
+        iconSize = 140;
+        iconStartx = 740;
+        iconStarty = 20;
         numCol = 4;
 
         addMouseMotionListener(this);
@@ -93,10 +88,17 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             button = button.getScaledInstance(170, 60, Image.SCALE_DEFAULT);
             locked = ImageIO.read(new File("lib/images/icons/locked.png"));
             locked = locked.getScaledInstance(130, 130, Image.SCALE_DEFAULT);
-            for(int i = 1; i < iconNum + 1; i++){
-                bigIcons[i-1] = ImageIO.read(new File("lib/images/icons/"+i+".png"));
-                icons[i-1] = bigIcons[i-1].getScaledInstance(130, 130, Image.SCALE_DEFAULT);
+            for(int i = 0; i < iconNum; i++){
+                int temp = i + 1;
+                bigIcons[i] = ImageIO.read(new File("lib/images/icons/"+temp+".png"));
+                icons[i] = bigIcons[i].getScaledInstance(130, 130, Image.SCALE_DEFAULT);
             }
+            
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "C: Error loading in file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        }
+
+        try {
             Scanner file = new Scanner(new File("lib/dialogues/descriptions.txt"));
             int count = 0;
             while (file.hasNext()) {
@@ -106,7 +108,20 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             }
             file.close();
         } catch (IOException e){
-            JOptionPane.showMessageDialog(null, "C: Error loading in file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "C: Error loading in description file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        }
+
+        try {
+            Scanner file = new Scanner(new File("lib/dialogues/itemNames.txt"));
+            int count = 0;
+            while (file.hasNext()) {
+                String nextLine = file.nextLine();
+                names[count] = nextLine;
+                count++;
+            }
+            file.close();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "C: Error loading in item name file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
         }
         
     }
@@ -128,7 +143,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             if(result > 0){
                 collected[result] = true;
             }
-            currResult = -1;
+            result = -1;
             element1 = -1;
             element2 = -1;
             
@@ -138,7 +153,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
 
         if(x>50 && x<220 && y>600 && y<660){
             go = true;
-        } else if(x>250 && x<320 && y>600 && y<660){
+        } else if(x>250 && x<420 && y>600 && y<660){
             element1 = -1;
             element2 = -1;
         } else if(x>450 && x<520 && y>600 && y<660){
@@ -149,8 +164,10 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             if(x<iconStartx || y < iconStarty){
                 return;
             }
-            which = ((x - iconStartx) / iconSize) + (((y - iconStarty) / iconSize) * numCol) + 1;
-            if(which >= 0 && which <= iconNum)
+            which = ((x - iconStartx) / iconSize) + (((y - iconStarty) / iconSize) * numCol);
+            if(!collected[which]){
+                return;
+            }
             if(element1 == -1){
                 element1 = which;
             } else {
@@ -160,13 +177,13 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
     }
 
     private int findResult(){
-        int small = element1;
-        int big = element2;
+        int small = element1 + 1;
+        int big = element2 + 1;
         int result = -1;
 
         if(element1 > element2){
-            small = element2;
-            big = element1;
+            small = element2 + 1;
+            big = element1 + 1;
         }
 
         switch (small){
@@ -233,7 +250,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
                 }
                 break;     
         }
-        return result;
+        return result - 1;
     }
 
     public void mouseClicked(MouseEvent e){}
@@ -281,10 +298,10 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         g.drawString("Exit", 505, 638);
 
         if(element1 != -1){
-            g.drawImage(icons[element1 - 1], 100, 150, null);
+            g.drawImage(icons[element1], 100, 150, null);
         }
         if(element2 != -1){
-            g.drawImage(icons[element2 - 1], 400, 150, null);
+            g.drawImage(icons[element2], 400, 150, null);
         }
 
         for(int i = 0; i < iconNum; i++){
@@ -298,17 +315,17 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         }
 
         if(showBox){
-            if(currResult != -1 && collected[currResult]){
-                g.drawImage(icons[currResult], 250, 410, null);
-            } else if (currResult != -1){
-                g.drawImage(icons[currResult], 250, 410, null);
+            if(result > -1 && collected[result]){
+                g.drawImage(icons[result], 250, 410, null);
+            } else if (result > -1){
+                g.drawImage(icons[result], 250, 410, null);
                 g.drawImage(box, 200, 100, null);
-                g.drawString(names[currResult], 260, 230);
+                g.drawString(names[result], 260, 230);
                 g.setFont(georgiaB);
                 g.drawString("Congratulations! You found a new recipe", 260, 160);
                 g.setFont(georgia);
-                write(g, desc[currResult-13], 260, 270);
-                g.drawImage(bigIcons[currResult], 800, 40, null);
+                write(g, desc[result-13], 260, 270);
+                g.drawImage(bigIcons[result], 800, 40, null);
                 g.setFont(broadway);
             } else {
                 g.drawImage(longButton, 120, 280, null);
@@ -327,14 +344,11 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
                 repaint();
             }
             result = findResult();
-            currResult = result;
             showBox = true;
             revalidate();
             repaint();
-            System.out.println(result);
         }
         if(exit){
-            System.out.println("EXIT!!");
             return 0;
         }
         System.out.println("EXIT!!wnumber"+result);

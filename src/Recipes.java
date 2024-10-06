@@ -27,9 +27,9 @@ public class Recipes extends JPanel  {
     private Image locked; //locked image
     private boolean[] killed;
     private boolean[] collected;
-    private int[] choices;
+    private int choices;
     private String[] names;
-    private String[] desc = new String [30];
+    private String[] formula = new String [30];
     private int iconStartx = 50;
     private int iconStarty = 50;
     private int iconNum = 15;
@@ -37,34 +37,52 @@ public class Recipes extends JPanel  {
     private int numCol = 4;
 
 
-    public Recipes (boolean[] k, boolean[] col, int[] cho){
+    public Recipes (boolean[] k, boolean[] col, int cho){
         killed = k;
         collected = col;
         choices = cho;
-        names = new String[] {"Reeds", "Drop of Blood", "Toadstool", "Crowberry", "Foxglove", 
-        "Obsidian", "Pixie Dust", "Dubious Potion", "Opalescent Eyeball", "Shiny Skull", 
-        "Spirit in an Hourglass", "Bar of Gold", "Icy Scale", "Cloud in a Bottle", "Humming Geode", 
-        "Heart of the Forest", "Fire in a Marble"};
+
+        names = new String[30];
+        formula = new String[30];
+
         for(int i = 0; i < 15; i++){
-            desc[i] = "It was always there.";
+            formula[i] = "It was always there.";
         }
 
+        //load in images
         try{
             bg = ImageIO.read(new File("lib/images/recipes_bg.png"));
             for(int i = 1; i < iconNum + 1; i++){
                 icons[i-1] = ImageIO.read(new File("lib/images/icons/"+i+".png"));
                 icons[i-1] = icons[i-1].getScaledInstance(130, 130, Image.SCALE_DEFAULT);
             }
-            Scanner file = new Scanner(new File("lib/dialogues/descriptions.txt"));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "R: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        }
+        try {
+            Scanner file = new Scanner(new File("lib/dialogues/formula.txt"));
             int count = 15;
             while (file.hasNext()) {
                 String nextLine = file.nextLine();
-                desc[count] = nextLine;
+                formula[count] = nextLine;
                 count++;
             }
             file.close();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "R: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "R: Error loading in formula file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        }
+        //load in item names
+        try {
+            Scanner file = new Scanner(new File("lib/dialogues/itemNames.txt"));
+            int count = 0;
+            while (file.hasNext()) {
+                String nextLine = file.nextLine();
+                names[count] = nextLine;
+                count++;
+            }
+            file.close();
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, "C: Error loading in item name file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
         }
     }
 

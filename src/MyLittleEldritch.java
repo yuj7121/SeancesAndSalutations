@@ -15,12 +15,19 @@ import java.awt.GraphicsEnvironment;
 public class MyLittleEldritch{///
    /** This is the main Jframe used for this game */
    private JFrame frame;////
-   private boolean[] killed = {false};
-   private boolean[] collected = {false};
-   private int[] choices = {0};
+   private boolean[] killed;
+   private boolean[] collected;
+   private int choices;
    
    public MyLittleEldritch(){
       frame = new JFrame("My Little Eldritch");
+      killed = new boolean[30];
+      collected = new boolean[30];
+      choices = 0;
+      for(int i = 0; i < 12; i++){
+         collected[i] = true;
+      }
+      
    }
 
    
@@ -47,7 +54,7 @@ public class MyLittleEldritch{///
       
    //runs the little tutorial dialogue
    private void runTutorial(){
-      Dialogue d = new Dialogue("earth", "earth");
+      Tutorial d = new Tutorial("tutorial", "tutorial");
       frame.add(d);
       d.run();
       frame.remove(d);
@@ -57,7 +64,7 @@ public class MyLittleEldritch{///
       Hut hut = new Hut();
       hut.init(killed, collected);
       frame.add(hut);
-      int go =  hut.run();
+      int go = hut.run();
       frame.remove(hut);
       return go;
    }
@@ -80,27 +87,37 @@ public class MyLittleEldritch{///
 
    private int runDialogue(int number){
       String creature;
-      String text;
+      int points;
       switch (number){
-         case 0:
-            creature = "tutorial";
-            text = "tutorial";
+         case 23:
+            creature = "fire";
             break;
-         case 1:
+         case 24:
+            creature = "water";
+            break;
+         case 25:
+            creature = "wind";
+            break;
+         case 26:
             creature = "earth";
-            text = "earth";
+            break;
+         case 27:
+            creature = "wood";
+            break;
+         case 28:
+            creature = "metal";
             break;
          default:
             creature = " ";
             text = " ";
       }
-
-      Dialogue dialogue = new Dialogue(creature, text);
+      Dialogue dialogue = new Dialogue(creature);
       frame.add(dialogue);
-      dialogue.run();
+      points = dialogue.run();
       frame.remove(dialogue);
-      return 0;
+      return points;
    }
+
 
    
    /**
@@ -108,30 +125,29 @@ public class MyLittleEldritch{///
     * and acts as the main game runner
     */
    public void run(){  
-      int eldritch = -1;
-
-      int go = 0; //0=hut, 1=recipes, 2=circle, 3=dialogue, 4 = quit
+      int go = 0; //0=hut, 1=circle, 2=recipes, 3=quit, else dialogue
 
       setFrame();
-      runSplash();
-    
-      runTutorial();
+
+      //runSplash();
+      //runTutorial();
       
       go = runHut();
 
-      while (go != 4) {
+      while (go != 3) {
          switch (go){
-            case 0:
+            case 0: //hut
                go = runHut();
                break;
-            case 1:
+            case 1: //circle
+               go = runCircle();
+               break;
+            case 2: //recipes
                go = runRecipes();
                break;
-            case 2:
-               eldritch = runCircle();
-               break;
-            case 3:
-               go = runDialogue(eldritch);
+            default: //dialogue
+               runDialogue(go);
+               go = 0;
                break;
          }
       }

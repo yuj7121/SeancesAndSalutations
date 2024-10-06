@@ -9,10 +9,10 @@ import java.util.List;
 import java.awt.GraphicsEnvironment;
 
 // main class
-
+  
 public class MyLittleEldritch{
    /** This is the main Jframe used for this game */
-   private JFrame frame;
+   private JFrame frame;////
    private boolean[] killed;
    private boolean[] collected;
    private int[] choices;

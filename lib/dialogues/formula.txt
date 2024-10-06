@@ -1,16 +1,16 @@
-aaaa
-bbb
-ccc
-dddd +ddddd
-eeeeee + eeeeeeeeeeeeeeee
-ffffffffff + ffffffffffffffffff
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
-gggggggggggggg + ggggggggg
+Dubious Potion + Shiny Skull
+Toadstool + Pixie Dust
+Foxgloves + Obsidian
+Reed + Drop of Blood
+Opalescent Eyeball + Spirit in an Hourglass
+Reed + Pixie Dust
+Drop of Blood + Dubious Potion
+Crowberry + Obsidian
+Foxgloves + Shiny Skull
+Toadstool + Opalescent Eyeball
+Encapsulated Spark + Dubious Potion
+Icy Scale + Opalescent Eyeball
+Cloud in a Bottle + Pixie Dust
+Humming Geode + Shiny Skull
+Heart of the Forest + Pixie Dust
+Bar of Gold + Spirit in an Hourglass

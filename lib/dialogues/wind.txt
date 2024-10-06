@@ -1,9 +1,9 @@
-0: > The clouds split as the heavens tremble, a feverish quake resonating through the atmosphere and all that remains within. You hear it before you see it, the wind singing in its wake, thundering claps of wingbeats against the currents. [newline] A shelter of down in an ever-revolving mass of feathers, fleeting in its appearance, temporal in its presence. [newline] It has cast an eye on you—for now. You know it will not remain long. 
+0: > The clouds split as the heavens tremble, a feverish quake resonating through the atmosphere and all that remains within. You hear it before you see it, the wind singing in its wake, thundering claps of wingbeats against the currents. [newline] A shelter of down in an ever-revolving mass of feathers, fleeting in its appearance, temporal in its presence. [newline] It has cast an eye on you, for now. You know it will not remain long. 
 CHOICE1
 !+2(Force its attention.) 
-1: > The wind is naught but null in a vacuum. 
+0: > The wind is naught but null in a vacuum. 
 !+0(Wait.) 
-1: > All things worth any value come with the price of patience—let it do as it pleases.
+0: > All things worth any value come with the price of patience—let it do as it pleases.
 !+1(Speak assertively.) 
 0: > What are words if not coloured breezes to tarry among the clouds?
 DIALOGUE

@@ -150,7 +150,7 @@ public class SeancesAndSalutations{///
          ending = 2;
       }
 
-      runTutorial("chtulu", "chtulu"+ending);
+      runTutorial("cthulu", "cthulu"+ending);
    }
 
    /**
@@ -162,10 +162,12 @@ public class SeancesAndSalutations{///
 
       setFrame();
 
-      //runSplash();
-      //runTutorial("tutorial", "tutorial");
+      //runCthulu();
+
+
+      runSplash();
+      runTutorial("tutorial", "tutorial");
       
-      //System.out.println(runDialogue(25));
 
       go = runHut();
 
@@ -203,7 +205,7 @@ public class SeancesAndSalutations{///
    
    /**
     * This is the main method that instantiates the game and runs it. 
-    * @param args This is the command line argument
+    * @param argss This is the command line argument
     */
    public static void main(String args[]){
       SeancesAndSalutations game = new SeancesAndSalutations();

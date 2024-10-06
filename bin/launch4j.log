@@ -124,3 +124,22 @@ Launcher:	C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\jre1.8.0_
 Launcher args:	-jar "C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\SeancesAndSalutations.exe"
 Args length:	93/32768 chars
 Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\SeancesAndSalutation.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Create mutex:	Seances and Salutations
+Working dir:	C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	jre1.8.0_421
+Check launcher:	C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\jre1.8.0_421\bin\javaw.exe (OK)
+Version string: 1.008.000_421 / 64-Bit (OK)
+Launcher:	C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\jre1.8.0_421\bin\javaw.exe
+Launcher args:	-jar "C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\bin\SeancesAndSalutation.exe"
+Args length:	92/32768 chars
+Exit code:	0

@@ -1,19 +1,19 @@
 0: You hear a slow, heavy creaking sound, like that of an unoiled door hinge being pried open by unwelcome hands. When you open your eyes, you feel your energy being sapped, bones becoming brittle and nerves becoming slow. 
-0: A creature of wizened bark simply lives, breathes in your presence-without even hearing or seeing it react, you can tell it shows contempt towards you, despite its seemingly peaceful appearance. 
+0: A creature of wizened bark simply lives, breathes in your presence—without even hearing or seeing it react, you can tell it shows contempt towards you, despite its seemingly peaceful appearance. 
 0: You crane your head forward, your eyelids heavy, wanting nothing more than to make your bed with a mattress of mulch and blanket of leaves. What is the reason behind this..?
 CHOICE1
 !+1(Apologise). 
 0: It must be mad at you specifically for some reason.
 !+0(Introduce yourself.) It must have the wrong person. Why does it hold a grudge?
 !+2(Greet it!) As frail as you feel right now, nothing can cut down your spirit!
-0: The tree-like entity does not respond. Somehow, when you concentrate hard enough, under its thinly-veiled distaste for you lies a tender layer of regret, of sadness. It does not seem to want to conceal it-it simply stands tall and not-quite-proud, but solid nonetheless. You want to get a reaction from it.
+0: The tree-like entity does not respond. Somehow, when you concentrate hard enough, under its thinly-veiled distaste for you lies a tender layer of regret, of sadness. It does not seem to want to conceal it—it simply stands tall and not-quite-proud, but solid nonetheless. You want to get a reaction from it.
 CHOICE2
 !+2(Joke.) 
 0: You can't think of a joke! You're stumped!! Get it? I get it, you saw that coming. Get it?? Saw?
 0: The verdant giant falls even stiller than it had been before. Then, a soft whisper tousles its minimal leaves, painting it to be the most lively you have ever seen. [newline] It sweeps into a gust, branches rumbling in a low yet constant sound, vibrating all around as though echoing through a hollow.
 0: The flora-touched being seems so much taller in your eyes now, with a trunk that reaches for the brightest ray of light from the sun and leaves ever-so hardy. 
 0: You realise, with a start, that it is laughing, in all of its stoic glory. It has laughed at your joke. You did it! You really got a reaction from it! [newline] Like a pendulum, it oscillates back and forth, tipping to more dramatic points each time. However, the more you watch as it sways, you notice that you do not feel any mirth stemming from its presence. Uh oh. 
-0: With a great, violent heave, its roots groan as it gives one particularly dramatic swing and you instinctively flinch away, feeling thin branches whip at you as it surges past. In the corner of your eye, you catch a glance of light, just a flicker-then, a flicker turns into a flame, and a flame into a fire, and a fire into an inferno, and oh good gods what have you done?
+0: With a great, violent heave, its roots groan as it gives one particularly dramatic swing and you instinctively flinch away, feeling thin branches whip at you as it surges past. In the corner of your eye, you catch a glance of light, just a flicker—then, a flicker turns into a flame, and a flame into a fire, and a fire into an inferno, and oh good gods what have you done?
 0: The tree-beast is engulfed by the blaze within seconds, and yet it laughs, laughs and laughs as the hells drag it below. You feel hollow, but at least wildfires bring new growth, right? Prune the weak, foster the strong.
 !+1(Insult it.) 
 0: You tell it its roots are poorly maintained and its pitiful, few remaining leaves are disgusting. 

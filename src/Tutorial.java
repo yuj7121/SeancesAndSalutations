@@ -45,7 +45,11 @@ public class Tutorial extends JPanel {
       
       font = new Font("georgia", Font.PLAIN, 24); 
       try{
+         if(familiarName == "cthulu"){
+            familiar = ImageIO.read(new File("lib/images/cthulu.png"));
+         }
          bg = ImageIO.read(new File("lib/images/hut.png"));
+         bg = bg.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
          box = ImageIO.read(new File("lib/images/box.png"));
          box = box.getScaledInstance(1200, 300, Image.SCALE_DEFAULT);
          witch1 = ImageIO.read(new File("lib/images/witch1.png"));
@@ -115,9 +119,9 @@ public class Tutorial extends JPanel {
 
       g.drawImage(bg, 0, 0, null);
       if(who[dialogueIndex/2] == 0){
-         g.drawImage(familiar, 100, 200, null);
+         g.drawImage(familiar, 100, -40, null);
       } else if (who[dialogueIndex/2] == 1){
-         g.drawImage(witch1, 800, 200, null);
+         g.drawImage(witch1, 500, -40, null);
       }
       g.drawImage(box, 60, 420, null);
 

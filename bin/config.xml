@@ -10,7 +10,7 @@
   <priority>normal</priority>
   <downloadUrl></downloadUrl>
   <supportUrl></supportUrl>
-  <stayAlive>false</stayAlive>
+  <stayAlive>true</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
   <icon>C:\Users\yujin\Documents\game_jam\git\my_little_eldritch\lib\images\icon.ico</icon>

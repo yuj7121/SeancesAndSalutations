@@ -2,7 +2,7 @@ to get .java to .class:
 {{
     <<<<< run in the src folder w the java files
     javac -target 1.8 -d [foldername for .class] [mainfile.java]
-    javac -target 1.8 -d ../classes SeancesAndSalutations.java            
+    javac -source 1.8 -target 1.8 -d ../classes SeancesAndSalutations.java
 }}
 
 run 

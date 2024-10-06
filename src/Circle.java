@@ -61,7 +61,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         icons = new Image[30];
         bigIcons = new Image[30];
         names = new String[30];
-        desc = new String[16]; //item descriptions
+        desc = new String[30]; //item descriptions
         go = false;
         exit = false;
         element1 = -1;
@@ -69,7 +69,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         result = -1;
         showBox = false;
 
-        iconNum = 17;
+        iconNum = 23;
         iconSize = 140;
         iconStartx = 740;
         iconStarty = 20;

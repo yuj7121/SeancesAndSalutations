@@ -63,8 +63,8 @@ public class Recipes extends JPanel implements MouseListener{
         addMouseListener(this);
 
         for(int i = 0; i < 12; i++){
-            formula[i] = "It was always there.";
-            unknown_formula[i] = "It was always there.";
+            formula[i] = "You have it in your shelf.";
+            unknown_formula[i] = "You have it in your shelf.";
         }
 
         //load in images

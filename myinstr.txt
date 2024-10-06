@@ -1,0 +1,25 @@
+to get .java to .class:
+{{
+    <<<<< run in the src folder w the java files
+    javac -target 1.8 -d [foldername for .class] [mainfile.java]
+    javac -target 1.8 -d ../classes UnderPressure.java            
+}}
+
+run 
+{{
+    
+}}
+
+to get .class to .jar
+{{
+    <<<<< run the in the classes folder/or just anywhere really
+    jar cvfe UnderPressure.jar UnderPressure *.class
+}}
+
+to get .class to .exe
+{{
+    use launch4j
+    unde JRE [[C:\Users\yujin\Documents\game_jam\example\jre1.8.0_421]]
+    <<< that's the name of the folder w stuff
+}}
+

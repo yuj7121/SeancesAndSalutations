@@ -47,18 +47,18 @@ public class Dialogue extends JPanel {
       
       font = new Font("Broadway", Font.PLAIN, 25); 
       try{
-         bg = ImageIO.read(new File("/lib/images/hut.png"));
-         witch1 = ImageIO.read(new File("/lib/images/witch1.png"));
-         witch2 = ImageIO.read(new File("/lib/images/witch2.png"));
-         familiar = ImageIO.read(new File("/lib/images/"+familiarName));
+         bg = ImageIO.read(new File("lib/images/hut.png"));
+         witch1 = ImageIO.read(new File("lib/images/witch1.png"));
+         witch2 = ImageIO.read(new File("lib/images/witch2.png"));
+         familiar = ImageIO.read(new File("lib/images/"+familiarName+".png"));
          dialogueIndex = 0;
       }
       catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "D: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
       }
 
       try {
-         Scanner file = new Scanner(new File("/lib/dialogues/"+textsName));
+         Scanner file = new Scanner(new File("lib/dialogues/"+textsName+".txt"));
          while (file.hasNext())
          {
             String nextLine = file.nextLine();
@@ -76,7 +76,7 @@ public class Dialogue extends JPanel {
          }
          file.close();
       } catch (Exception e){
-        JOptionPane.showMessageDialog(null, "Error loading in file"+textsName, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "D: Error loading in file: "+textsName, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
       }
    }
    

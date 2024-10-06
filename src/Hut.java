@@ -1,8 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseEvent;
+
 import javax.imageio.ImageIO;
 import java.io.*;
 
@@ -28,26 +27,26 @@ public class Hut extends JPanel implements MouseListener, MouseMotionListener{
    private int hover;
    private boolean[] killed;
    private boolean[] collected;
-    
-   public Hut(boolean[] ki, boolean[] co){
+   
+   public Hut(){}
+
+   public void init(boolean[] ki, boolean[] co){
       killed = ki;
       collected = co;
       go = -1;
       hover = -1;
 
-      //dummy
-      if(killed[0] && collected[0]){
-
-      }
+  
 
       addMouseMotionListener(this);
       addMouseListener(this);
       try{
-      bg = ImageIO.read(new File("/lib/images/hut.png"));
-      circleRedLine = ImageIO.read(new File("/lib/images/circleRedLine.png"));
-      recipesRedLine = ImageIO.read(new File("/lib/images/recipesRedLine.png"));
+      bg = ImageIO.read(new File("lib/images/hut.png"));
+      bg = bg.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
+      circleRedLine = ImageIO.read(new File("lib/images/shelf1.png"));
+      recipesRedLine = ImageIO.read(new File("lib/images/shelf2.png"));
       } catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "H: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
       }
    }
 
@@ -66,15 +65,15 @@ public class Hut extends JPanel implements MouseListener, MouseMotionListener{
       int x = e.getX();
       int y = e.getY();
 
-      if(x>200 && x<500 && y>70 && y<770){
-      hover = 0;
-      repaint();
-      } else if(x>980 && x<1280 && y>70 && y<770){
+      if(x>0 && x<470 && y>0 && y<630){
+         hover = 0;
+         repaint();
+      } else if(x>960 && x<1366 && y>0 && y<580){
          hover = 1;
-      repaint();
+         repaint();
       } else {
-      hover = -1;
-      repaint();
+         hover = -1;
+         repaint();
       }
    }
     
@@ -91,11 +90,11 @@ public class Hut extends JPanel implements MouseListener, MouseMotionListener{
       g.drawImage(bg, 0, 0, null);
       switch (hover){
       case 0:
-         g.drawImage(circleRedLine, 200, 70, null);
+         g.drawImage(circleRedLine, 0, 0, null);
          break;
       case 1:
-      g.drawImage(recipesRedLine, 980, 70, null);
-      break;
+         g.drawImage(recipesRedLine, 866, 0, null);
+         break;
       }
    }
 

@@ -84,20 +84,20 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         addMouseListener(this);
 
         try{
-            bg = ImageIO.read(new File("/lib/images/circle_bg.png"));
+            bg = ImageIO.read(new File("lib/images/circle_bg.png"));
             bg = bg.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
-            box = ImageIO.read(new File("/lib/images/box.png"));
+            box = ImageIO.read(new File("lib/images/box.png"));
             box = box.getScaledInstance(1000, 300, Image.SCALE_DEFAULT);
-            button = ImageIO.read(new File("/lib/images/button.png"));
+            button = ImageIO.read(new File("lib/images/button.png"));
             longButton = button.getScaledInstance(400, 135, Image.SCALE_DEFAULT);
             button = button.getScaledInstance(170, 60, Image.SCALE_DEFAULT);
-            locked = ImageIO.read(new File("/lib/images/icons/locked.png"));
+            locked = ImageIO.read(new File("lib/images/icons/locked.png"));
             locked = locked.getScaledInstance(130, 130, Image.SCALE_DEFAULT);
             for(int i = 1; i < iconNum + 1; i++){
-                bigIcons[i-1] = ImageIO.read(new File("/lib/images/icons/"+i+".png"));
+                bigIcons[i-1] = ImageIO.read(new File("lib/images/icons/"+i+".png"));
                 icons[i-1] = bigIcons[i-1].getScaledInstance(130, 130, Image.SCALE_DEFAULT);
             }
-            Scanner file = new Scanner(new File("/lib/dialogues/descriptions.txt"));
+            Scanner file = new Scanner(new File("lib/dialogues/descriptions.txt"));
             int count = 0;
             while (file.hasNext()) {
                 String nextLine = file.nextLine();
@@ -106,7 +106,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             }
             file.close();
         } catch (IOException e){
-            JOptionPane.showMessageDialog(null, "Error loading in file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "C: Error loading in file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
         }
         
     }

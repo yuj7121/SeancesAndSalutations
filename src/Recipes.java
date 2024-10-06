@@ -50,12 +50,12 @@ public class Recipes extends JPanel  {
         }
 
         try{
-            bg = ImageIO.read(new File("/lib/images/recipes_bg.png"));
+            bg = ImageIO.read(new File("lib/images/recipes_bg.png"));
             for(int i = 1; i < iconNum + 1; i++){
-                icons[i-1] = ImageIO.read(new File("/lib/images/icons/"+i+".png"));
+                icons[i-1] = ImageIO.read(new File("lib/images/icons/"+i+".png"));
                 icons[i-1] = icons[i-1].getScaledInstance(130, 130, Image.SCALE_DEFAULT);
             }
-            Scanner file = new Scanner(new File("/lib/dialogues/descriptions.txt"));
+            Scanner file = new Scanner(new File("lib/dialogues/descriptions.txt"));
             int count = 15;
             while (file.hasNext()) {
                 String nextLine = file.nextLine();
@@ -64,7 +64,7 @@ public class Recipes extends JPanel  {
             }
             file.close();
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "R: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
         }
     }
 

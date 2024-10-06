@@ -43,8 +43,9 @@ public class ImageFades extends JPanel implements ActionListener {
       text = "";
       try{
          image = ImageIO.read(new File("lib/images/"+img));
+         image = image.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
       } catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "Error loading in image", "Under Pressure", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "I: Error loading in image", "Under Pressure", JOptionPane.WARNING_MESSAGE);
          e.printStackTrace();
       }
    }
@@ -76,9 +77,9 @@ public class ImageFades extends JPanel implements ActionListener {
    public void paintComponent(Graphics g) {
       Graphics2D g2 = (Graphics2D) g;  //we need g to be 2d to do stuffs
       if (in) {   //if the image should be fading in
-         opacity++;
+         opacity+=2;
       } else {
-         opacity--;
+         opacity-=3;
       }
       if (opacity == 100) {   /*if the image finished completely fading in*/
          in = false;
@@ -111,9 +112,9 @@ public class ImageFades extends JPanel implements ActionListener {
       setFont(font);
       Timer time;
       if(text.equals("")){
-         time = new Timer (10, this);
+         time = new Timer (3, this);
       } else {
-         time = new Timer (60, this);
+         time = new Timer (5, this);
       }
       while(opacity > 1){ //stops when the image completely faded out
          revalidate();

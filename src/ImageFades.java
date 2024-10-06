@@ -45,7 +45,7 @@ public class ImageFades extends JPanel implements ActionListener {
          image = ImageIO.read(new File("lib/images/"+img));
          image = image.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
       } catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "I: Error loading in image", "Under Pressure", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "I: Error loading in image", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
          e.printStackTrace();
       }
    }

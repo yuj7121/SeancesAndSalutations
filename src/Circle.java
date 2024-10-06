@@ -95,7 +95,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             }
             
         } catch (IOException e){
-            JOptionPane.showMessageDialog(null, "C: Error loading in file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "C: Error loading in file", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
         }
 
         try {
@@ -108,7 +108,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             }
             file.close();
         } catch (IOException e){
-            JOptionPane.showMessageDialog(null, "C: Error loading in description file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "C: Error loading in description file", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
         }
 
         try {
@@ -121,7 +121,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             }
             file.close();
         } catch (IOException e){
-            JOptionPane.showMessageDialog(null, "C: Error loading in item name file", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "C: Error loading in item name file", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
         }
         
     }
@@ -156,7 +156,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         } else if(x>250 && x<420 && y>600 && y<660){
             element1 = -1;
             element2 = -1;
-        } else if(x>450 && x<520 && y>600 && y<660){
+        } else if(x>450 && x<620 && y>600 && y<660){
             element1 = -1;
             element2 = -1;
             exit = true;
@@ -324,7 +324,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
                 g.setFont(georgiaB);
                 g.drawString("Congratulations! You found a new recipe", 260, 160);
                 g.setFont(georgia);
-                write(g, desc[result-13], 260, 270);
+                write(g, desc[result-12], 260, 270);
                 g.drawImage(bigIcons[result], 800, 40, null);
                 g.setFont(broadway);
             } else {
@@ -337,7 +337,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
 
 
     public int run(){
-        while(!exit && result < 23){
+        while(!exit && result < 22){
             go = false;
             while(!go && !exit){
                 revalidate();
@@ -351,7 +351,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         if(exit){
             return 0;
         }
-        System.out.println("EXIT!!wnumber"+result);
+        //System.out.println("EXIT!!wnumber"+result);
         return result;
     }
 

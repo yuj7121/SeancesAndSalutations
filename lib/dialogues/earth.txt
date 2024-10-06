@@ -1,6 +1,22 @@
-0: tut Hi hello im 0 d fsadj fkdlsjfdsjlfjdlsflds [newline] fdjksf sd flkjdh jsd break here fkdsfjds dlfj lkdsj fldsj fldjslfjdkl fjdlf jdlsfj kldsj fldsjf lk;dsjflkdsj fkldsjfl;sdj lfjsd;lf djslfjsd;l [newline] sjfdhjf dks lkds  djfdjfskf bbb jldsjfldsjfjd aaa fjdsklf jkldsfjklds jflkdsjfkdsjklf jslf jdsklf jsdkfj klsd jfkldsjf ksdjflkdjfksdjkf jdfjdsf END0
-1: tut okok im 1 haha d fdsfdsfj hf dslk dsjkfhsdjklhf dh fds dshjkfshkj fdhjk dkj kjdsh kdshf dh jkfsdjkf sdjkf hsdjkf hkjdsh kdshf dshfj kdshkf dhjkf hsdjkf hsdjkfh hf kjdsh fksdah dsh dhjkf hsdkf END1
-2: tut yayyy im 2 dj kjsdfkjdshfkdskjf dsjkf sdjkfhdjshfjsdhkjfdhjkf hsdjkf hdsf hksdj  dfjkdhfkjdfdjkfhd sdjk djk fdjs dsfdsh ds fhjkfh k hds dshf dskjfhsjkl END2
-1: tut second attemps 1 djfskfal
-0: tut ejfsdfhkjshlkfhdkjf 0  djfks
-2: tut uu u this is 2 again ayya
+0: > You hear a clatter of brittle objects as soon as the ritual commences. Then, before you open your eyes, you are overcome by a terrible sensation: laughter. You clutch at your stomach and hold back your tears, determined to find just what exactly is incurring such a reaction. [newline] It is similar to you. Rather, it is what is inside of you: a skeleton in the flesh, or rather, out of it. [newline] The rattling turns into a jaunty rhythm as the skeleton begins to tap out a little jig, eager to see your reaction.
+CHOICE1
+!+1(Clap.) 
+0: > Cheer it on! What a show this is, worthy of praise!
+!+0 (Watch from the side.) 
+0: > This once-in-a-lifetime spotlight belongs to the performer.
+!+2(Dance your own dance.) 
+0: > Can't be left out of the fun! You enter its space, dancing to the rhythm of your own heart.
+DIALOGUE
+0: The bony figure twirls into a flourish, signalling the end of its performance. You are overcome by a gleeful fit of laughter once more, and once again you are unsure why. Perhaps before this thing became that of a cadaver, it once lived as a jester. 
+CHOICE2
+!+2(Shake its hand.) 
+0: > What greater prize is there than acquaintanceship? 
+0: > As you reach out to tug it into a firm handshake, the skeleton's entire arm falls out of the socket of its shoulder. It throws up its other arm with a shake of its head: why must humans always touch what they are not given permission to?! [newline] The skeleton snaps to attention, all of its jovial energy replaced with that of an angered sternness-you feel the humour in the air get replaced by dread, sluicing over you like cold water. 
+0: > These are more like the skeletons that you know. It approaches you with a terrifying cacophony of clanging bones, each step and each echo of its shaking structure causing you to feel more and more like one of its kind. Death is in the air, and it rattles.
+0: > You have come so far. You will not so easily be defeated by what once was just a mere mortal! [newline] You race towards it before it can even take another step closer. Then, you beat it to death with its own arm. [newline] Its second death, you suppose. Still, it is an undead-now-dead skeleton, a probable threat worth removing. You two are quite different, but what matters is that you won.
+!+0(Clap.) 
+0: > Is an encore out of the question, you wonder?
+!+1(Curtsy.) 
+0: > It is only expected of you!
+0: > Your polite manners are greatly appreciated! The friendly skeleton tips its metaphorical hat by taking off its head and putting it back on. It gently extends a hand, offering you a handshake if desired. Accepting it, you reel backwards as its arm pops off of its shoulder, a chill running down your spine.
+0: > Alas, the skeleton only shakes dryly in another silent laugh, for it has no vocal cords. You two share a good, hearty grin until the ground yawns before you, refusing to let go of what belongs to its earthly embrace. [newline] The skeleton is practically devoured by the sudden makeshift grave, and you watch as the floor restitches itself with not a single chalk line out of place. You salute and bid it farewell, certain that it was happy to have made a friend this day.

@@ -1,33 +1,18 @@
-0: Hi hello im 0 d fsadj fkdlsjfdsjlfjdlsflds fdjksf sd flkjdh jsd break here fkdsfjds dlfj lkdsj fldsj a a a a fldjslfjdkl a fjdskjf djflkdjslk djslf jdsf ldks jflkdsj fkldsj flksdjfklsdj fkldsjfklsj fjdlf jdlsfj kldsj fldsjf lk;dsjflkdsj fkldskjafj dsklfjdskfjdslkfjkldsjf kldsjfkldsjfklsdjflsdjflkj dfjdlsfjdlksfjkldsjfkldsjflkds dfjldsjfldsjfldsjfldjklf dslfldf kldsfldjlf sd;lf djslfjsd;l sjfdhjf dks aaaaaaaaaaa aaaaaa aaaaaaa aaaaaaaa aaaaaaaaaa bbbbbbbb ccccccccccc ddddddd dddddddddddddddddddd eeeeeeeeeeeeeeeeeeeeeeeeee fffffffffffffffffffffffffffffff ggggggggggggggggggggggggggg hhhhhhhhhhhhhhhhhhhhhhh iiiiiiiiiiiiiiiiiiii jjjjjjjjjjjjjjjjjj kkkkkkkkkkkk lllllllllllll mmmmmmmmmmmmmmmmmmmmmm nnnnnnnnnnnnnn oooooooooooo pppppppppppplkds END0
-1: okok im 1 haha d fdsfdsfj hf dslk dsjkfhsdjklhf dh fds dshjkfshkj fdhjk dkj kjdsh kdshf dh jkfsdjkf sdjkf hsdjkf hkjdsh kdshf dshfj kdshkf dhjkf hsdjkf hsdjkfh hf kjdsh fksdah dsh dhjkf hsdkf END1
-2: yayyy im 2 dj kjsdfkjdshfkdskjf dsjkf sdjkfhdjshfjsdhkjfdhjkf hsdjkf hdsf hksdj  dfjkdhfkjdfdjkfhd sdjk djk fdjs dsfdsh ds fhjkfh k hds dshf dskjfhsjkl END2
-1: second attemps 1 djfskfal
-0: ejfsdfhkjshlkfhdkjf 0  djfks
-2: this is 2 again ayya
+0: > The clouds split as the heavens tremble, a feverish quake resonating through the atmosphere and all that remains within. You hear it before you see it, the wind singing in its wake, thundering claps of wingbeats against the currents. [newline] A shelter of down in an ever-revolving mass of feathers, fleeting in its appearance, temporal in its presence. [newline] It has cast an eye on you-for now. You know it will not remain long. 
 CHOICE1
-!+2 thefirstanswer
-1: > narration that is the first answer
-0: for frist answer1end
-!+2 the second anser
-1: > narration2end
-!-4 the third answer
-1: witch3 speaksend
+!+2(Force its attention.) 
+1: > The wind is naught but null in a vacuum. 
+!+0(Wait.) 
+1: > All things worth any value come with the price of patience-let it do as it pleases.
+!+1(Speak assertively.) 
+0: > What are words if not coloured breezes to tarry among the clouds?
 DIALOGUE
-0: smth smth the creature says smth
-1: omg wow you speak
-0: kdfjsjf kfjdsjfls fkldsjflkdjlfjsdfdskjf d kdjfsdjfk slf sds kdsl
-0: d jflsdjf djfdk sdklfklsdfdjslfj dfjdsk klds lds
-0: dkljf lds flkdjfldklf jdsl dklsjf kldsjf kldjf kldsklf jdskl klsdf jls
-CHOICE2
-!+2 the first response
-0: the creature says something back
-0: wow more stuffs
-0: wow even more yayyyyy all these in response to answer 1end
-!-2 the second response
-0: the creature says something in response to response 2
-0: even more replyend
-1: witch replies back or smth
-!+0 the third response
-0: smth smth
-0: in response to third responseend
-
+0: > What fate! it stills before you languidly with what you think to be curiosity. you feel a calmness wash over you as though you stand in the eye of a hurricane-it blinks peacefully, and you feel its interest: what does one require?
+CHOICE2	
+!+2(Answers. Now.) 
+0: > A being like you does not stall for others.
+0: > The eye blinks back at you slowly, somewhat uncharacteristic of a being born from the essence of a tempest. It begins to fade, your words going out of one non-existent ear and out the other. [newline] You do not want it to leave. In fact, you will make it stay. You lurch forward and smear the chalk of the magic circle, effectively trapping the mistral creature in a foreign world. 
+0: > You hurl the nearest object at it-a gold bar from your stash, a staple in occultism. It gets enveloped by the voltage-filled wings of the beast, sparks flying and amping up into an electrifying light show. [newline] You instinctively shut your eyes, and open them once you see the light fade through your eyelids. You see the last remnants of a storm cloud from its rapidly fading form, having blasted itself out of energy. You conquered the zephyr today.
+!+1(Tailwind.) The required diligence to soar past your limits-you have always been ambitious.
+!+0(A song.) What melodies dance upon the wind today? What wisdom will it bring?
+0: > You hear a tinkle of bells upon the gales, riding in from a distant world and casting about the saccharine scent of sweet meadows, sunlight and floral notes splashing across your senses. You think it looks homesick. [newline] As you bow to the higher being, it flutters closer, its singular teal oculus observing you with detail. [newline] Then, it vanishes before you can even blink, dissipating into cloud-like particles, glinting joyfully despite the dim lighting of your home. It almost feels like a gift; it seems to approve of you.

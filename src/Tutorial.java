@@ -22,7 +22,6 @@ public class Tutorial extends JPanel {
    private Image bg;
    /** This Image variable stores the instructions image */
    private Image witch1;
-   private Image witch2;
    private Image familiar; //the thing the witch is talking to
    private Image box; //pretty little textbox   
    /** This array of strings variable stores the all the texts to display */
@@ -50,12 +49,11 @@ public class Tutorial extends JPanel {
          box = ImageIO.read(new File("lib/images/box.png"));
          box = box.getScaledInstance(1200, 300, Image.SCALE_DEFAULT);
          witch1 = ImageIO.read(new File("lib/images/witch1.png"));
-         witch2 = ImageIO.read(new File("lib/images/witch2.png"));
-         familiar = ImageIO.read(new File("lib/images/"+familiarName+".png"));
+         //familiar = ImageIO.read(new File("lib/images/"+familiarName+".png"));
          dialogueIndex = 0;
       }
       catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "T: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "T: Error loading in image", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
       }
 
       try {
@@ -77,7 +75,7 @@ public class Tutorial extends JPanel {
          }
          file.close();
       } catch (Exception e){
-        JOptionPane.showMessageDialog(null, "T: Error loading in file: "+textsName, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "T: Error loading in file: "+textsName, "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
       }
    }
    
@@ -120,8 +118,6 @@ public class Tutorial extends JPanel {
          g.drawImage(familiar, 100, 200, null);
       } else if (who[dialogueIndex/2] == 1){
          g.drawImage(witch1, 800, 200, null);
-      } else {
-         g.drawImage(witch2, 800, 200, null);
       }
       g.drawImage(box, 60, 420, null);
 
@@ -139,13 +135,13 @@ public class Tutorial extends JPanel {
       if(timer != null && timer.isRunning()) {
          return;
       }
-      timer = new Timer(60, new AbstractAction() {
+      timer = new Timer(20, new AbstractAction() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            if(typeWriterIndex < text.length()) {
+            if(typeWriterIndex < text.length() && dialogueIndex%2 == 0) {
                //revalidate();
-               repaint();
                typeWriterIndex++;
+               repaint();
             } else {
                timer.stop();
             }
@@ -173,14 +169,17 @@ public class Tutorial extends JPanel {
     */  
    public void run() {
       getClick();
-      while((dialogueIndex/2)<textsSize){
+      //FIX BUG HERE idalogueIndex should'nt have +1 but this is the only way
+      while(((dialogueIndex+1)/2) < textsSize){
          revalidate();
-         if(typeWriterIndex >= texts[dialogueIndex/2].length() && typeWriterIndex > 0){
+         if(typeWriterIndex > texts[dialogueIndex/2].length() && typeWriterIndex > 0){
             typeWriterIndex = 0;
             dialogueIndex++;
          }
+         repaint();
          slowPrint();
       }
+   
       return;
    } 
 }

@@ -1,0 +1,27 @@
+0: You feel it in your bones and in your nerves when it arrives: something soundless, something non-physical, but ever-present and almost spectral, passing through your frame and resonating: it is watching, stalking like a predator during a hunt. 
+0: Your ribcage thrums, the hair on your neck raises, your heart slams in your chest-you know that every fear response is being closely monitored [newline] You feel as though frostbite is creeping up on you. As you gaze into the leviathan's many-eyed gaze, you try to make sense of its mind in the split second of its mercy.
+CHOICE1
+!+2(Wait). 
+0: Stand still-creatures with many eyes are not necessarily good at seeing.
+!+0(Answer to it.) 
+0: Call out with confidence and bravery!
+!+1(Pray.) 
+0: To what? Who knows. You are filled with reverence for the divine.
+DIALOGUE
+0: You can hear it now. The giant creature rasps out a dry sound as its eyes narrow, and the fluttering of its fins becomes more rapid. It snaps upwards sharply and gazes downwards. It is a wonder that it does not knock anything over-regardless, the beast is now towering above you, though it almost seems to gaze past you. 
+CHOICE2
+!+2(Wait.) 
+0: Don't move. Maybe it's really stupid.
+0: The leviathan thrashes once more, turning to glance at you, then something behind you; you, and then something behind you, again and again. Silly creature, does it think you are a fool? A scorpion will sting, and a crocodile will bite-when prey turns its back on the predators, they will naturally hunt it. You do not look backwards.
+0: The beast grows more and more agitated as you refuse to look behind, making stubborn and unyielding eye-contact with it, though you do not know which eye to look at specifically. You look at all of them, somehow-a show of dominance! [newline] It rears its head back in a silent cry, jaws parted to reveal several rows of teeth; it must be desperate now! Get ready!
+0: It lunges forward then, and you raise your hands upwards to counter its attack, feeling the flow of arcane energy flood your veins. It is a refreshing sensation that never gets old, like a sip of cold water at midnight. Just when you think it is about to strike and you're ready to counter, you tense your muscles, hands against teeth and magic against melee, and!-
+0: It collapses in front of you, fins stiffly trailing behind in the motion before it falls still. An act? You cautiously lean forward, then muster up enough courage to nudge at it with your foot: 0: Crunch. The leviathan's fins went dry within seconds. You poke at its gills and pry open its jaws: dry. You glance behind you, then, at a cauldron of liquid that it was most certainly looking at. 
+0: Oh. Well.. At least you have all this loot. Something tells you this was not the right idea, but there's no turning back time. Every man for themselves, right?
+!+0(Examine it closer.) 
+0: As an abyssal creature, it must not be able to make many sounds. Visual cues, then! 
+1+1(Ask about it.) 
+0: What could it be looking at? Hellooo? Anyone in there?
+0: The creature hesitates, then shakes its head rapidly before motioning at something behind you. It's your turn to hesitate next, then, but you give in to the curiosity. You turn to gaze at a cauldron of a shimmering liquid, a discarded batch of potions that you have not thrown out yet. 
+0: When you turn to the leviathan again, you seem to have gained a significant amount of insight. [newline] You notice the curled, frayed edges of its fins, the quiet rasps it emits with every breath it takes in the arid, terrestrial environment. It is out of its element: it is perishing quickly. You meet its multi-eyed gaze once more: a mutual understanding is passed between the two of you. 
+0: With haste, you rush down the hall and open a door to your garden, where a pond lays unbothered. With the aid of transportation spells, you easily guide the wayward leviathan into something more akin to its habitat, and with glee, it dives into the depths of the water.
+0: It does not surface, and you can only assume that it has returned back to its homeworld. Better alive than dead-you hold no grudge against it. However, something glints among the surface. [newline] Another icy scale. It has allowed you to summon it back again one day, although perhaps under more adequate conditions.

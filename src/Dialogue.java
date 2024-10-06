@@ -22,7 +22,6 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
    private Image bg;
    /** This Image variable stores the instructions image */
    private Image witch1;
-   private Image witch2;
    private Image familiar; //the thing the witch is talking to
    private Image box; //pretty little textbox   
    /** This array of strings variable stores the all the texts to display */
@@ -77,12 +76,11 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
          box = ImageIO.read(new File("lib/images/box.png"));
          box = box.getScaledInstance(1200, 300, Image.SCALE_DEFAULT);
          witch1 = ImageIO.read(new File("lib/images/witch1.png"));
-         witch2 = ImageIO.read(new File("lib/images/witch2.png"));
          familiar = ImageIO.read(new File("lib/images/"+name+".png"));
          dialogueIndex = 0;
       }
       catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "D: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "D: Error loading in image", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
       }
 
       try {
@@ -91,6 +89,8 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
          while (file.hasNext())
          {
             String nextLine = file.nextLine();
+            nextLine.replaceAll("\u2019", "'");
+            nextLine.replaceAll("\u2018", "'");
             char first = nextLine.charAt(0);
             if(first == 'C') {
                if (reading == 0){
@@ -115,7 +115,7 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
                   } else {
                      choicePoints[choicesSize] = -1 * (nextLine.charAt(2) - '0');
                   }
-                  choices[choicesSize] = nextLine.substring(4);
+                  choices[choicesSize] = nextLine.substring(3);
                   choicesSize++;
                   consSize++;
                } else {
@@ -139,7 +139,7 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
          }
          file.close();
       } catch (Exception e){
-         JOptionPane.showMessageDialog(null, "D: Error loading in file: "+name, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "D: Error loading in file: "+name, "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
       }
    }
 
@@ -150,36 +150,43 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
       if(!choosing){
          dialogueIndex++;
          if(where == 0){
-            if(d1Size == (dialogueIndex+1)/2) {
+            if(d1Size == (dialogueIndex)/2) {
                where = 1;
                choosing = true;
+               dialogueIndex = 0;
             } else {
                currStr = dialogue1[(dialogueIndex)/2];
                who = who1[(dialogueIndex)/2];
             }
          } else if(where == 1){
-            if((dialogueIndex+1)/2 == consIndSize[clicked - 1]){
+            if((dialogueIndex)/2 == consIndSize[clicked - 1]){
+               dialogueIndex = 0;
                where = 2;
+               System.out.println("where=2 now");
                choosing = false;
             } else {
-               currStr = consequence[consIndSize[clicked - 1]][(dialogueIndex)/2];
-               who = consWho[consIndSize[clicked - 1]][(dialogueIndex)/2];
+               currStr = consequence[clicked - 1][(dialogueIndex)/2];
+               who = consWho[clicked - 1][(dialogueIndex)/2];
             }
-         } else if(where == 2){
-            if(d2Size == (dialogueIndex+1)/2) {
+         } else if (where == 2){
+            if(d2Size == (dialogueIndex)/2) {
+               dialogueIndex = 0;
                where = 3;
+               System.out.println("where=3 now");
                choosing = true;
             } else {
                currStr = dialogue2[(dialogueIndex)/2];
                who = who2[(dialogueIndex)/2];
             }
          } else if (where == 3) {
-            if((dialogueIndex)/2 == consIndSize[clicked + 3 - 1]){
+           if((dialogueIndex)/2 == consIndSize[clicked + 3 - 1]){
+               System.out.println("where=4 now");
+               dialogueIndex = 0;
                where = 4;
                choosing = true;
             } else {
-               currStr = consequence[consIndSize[clicked + 3 - 1]][(dialogueIndex)/2];
-               who = consWho[consIndSize[clicked + 3 - 1]][(dialogueIndex)/2];
+               currStr = consequence[clicked + 3 - 1][(dialogueIndex)/2];
+               who = consWho[clicked + 3 - 1][(dialogueIndex)/2];
             }
          }
          return;
@@ -193,16 +200,24 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
          clicked = 3;
       } else {
          clicked = -1;
+         System.out.println("return");
+         choosing = true;
          return;
       }
+      choosing = false;
+
       if(where == 1){
          currStr = consequence[clicked - 1][0];
-      } else {
+         point += choicePoints[clicked - 1];
+
+      } else if (where == 3){
+         System.out.println("where=3, clicked = "+clicked);
          currStr = consequence[clicked - 1 + 3][0];
+         System.out.println("str:"+currStr);
+         point += choicePoints[clicked - 1 + 3];
       }
       dialogueIndex = 0;
-      choosing = false;
-      System.out.println(clicked);
+      //System.out.println(point);
    }
 
    public void mouseMoved(MouseEvent e){
@@ -241,12 +256,10 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
 
       g.drawImage(bg, 0, 0, null);
       if(who == 0){
-         g.drawImage(familiar, 100, 200, null);
+         g.drawImage(familiar, 500, -30, null);
       } else if (who == 1){
-         g.drawImage(witch1, 800, 200, null);
-      } else {
-         g.drawImage(witch2, 800, 200, null);
-      }
+         g.drawImage(witch1, 100, -40, null);
+      } 
       g.drawImage(box, 60, 420, null);
 
       if(choosing){
@@ -296,13 +309,13 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
       if(timer != null && timer.isRunning()) {
          return;
       }
-      timer = new Timer(60,new AbstractAction() {
+      timer = new Timer(20,new AbstractAction() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            if(typeWriterIndex < currStr.length()) {
-               revalidate();
-               repaint();
+            if(typeWriterIndex < currStr.length() && dialogueIndex%2 == 0) {
+               //revalidate();
                typeWriterIndex++;
+               repaint();
             } else {
                timer.stop();
             }
@@ -312,36 +325,40 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
    }
    
 
-
+   /*
    private void printDialogue(int[] who, String[] lines, int size){
       for(int i = 0; i < size; i++){
          currStr = lines[i];
-         //System.out.println(lines[i]);
+         System.out.println(lines[i]);
       }
    }
 
    private void runChoices(int start){
       for(int i = start; i < start + 3; i++){
          choosing = true;
-         //System.out.println("choice "+i+" is: "+choices[i]);
-         //System.out.println("choice "+i+" points: "+choicePoints[i]);
-         //System.out.println("choice "+i+" results in: ");
+         System.out.println("choice "+i+" is: "+choices[i]);
+         System.out.println("choice "+i+" points: "+choicePoints[i]);
+         System.out.println("choice "+i+" results in: ");
          printDialogue(consWho[i], consequence[i], consIndSize[i]);  
-         //System.out.println("<<<<<<<<<< that was choice "+i);     
+         System.out.println("<<<<<<<<<< that was choice "+i);     
       }
    }
 
    private void runScripts(){
-      //System.out.println("First Dialogue____________________");
+      System.out.println("First Dialogue____________________");
       printDialogue(who1, dialogue1, d1Size);
-      //System.out.println("First QNA____________________");
+      System.out.println("First QNA____________________");
       runChoices(0);
-      //System.out.println("Second Dialogue____________________");
+      System.out.println("Second Dialogue____________________");
       printDialogue(who2, dialogue2, d2Size);
-      //System.out.println("Second QNA____________________");
+      System.out.println("Second QNA____________________");
       runChoices(3);
       
    }
+   */
+   
+
+
    
    /**
     * This method allows the user to cycle through all of the information slides in level one
@@ -351,10 +368,11 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
       currStr = dialogue1[0];
       while(where != 4){
          revalidate();
-         if(typeWriterIndex >= currStr.length()){
-            dialogueIndex++;
+         if(typeWriterIndex > 0 && typeWriterIndex > currStr.length()){
             typeWriterIndex = 0;
+            dialogueIndex++;
          }
+         repaint();
          slowPrint();
          //runScripts();
       }

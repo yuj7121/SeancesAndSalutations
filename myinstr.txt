@@ -2,7 +2,7 @@ to get .java to .class:
 {{
     <<<<< run in the src folder w the java files
     javac -target 1.8 -d [foldername for .class] [mainfile.java]
-    javac -target 1.8 -d ../classes UnderPressure.java            
+    javac -target 1.8 -d ../classes SeancesAndSalutations.java            
 }}
 
 run 
@@ -13,7 +13,8 @@ run
 to get .class to .jar
 {{
     <<<<< run the in the classes folder/or just anywhere really
-    jar cvfe UnderPressure.jar UnderPressure *.class
+    jar cvfe SeancesAndSalutations.jar SeancesAndSalutations *.class
+    
 }}
 
 to get .class to .exe

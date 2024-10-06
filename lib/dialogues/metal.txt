@@ -1,0 +1,24 @@
+0: You feel time move sluggishly slow around you, then coast by like a great tidal wave - and again and again it swirls when you recognise a faint clicking sound, indicating the next flow of time with each noise. [newline] When you open your eyes, you recognise the sight of one of the creatures you needed to summon. It is not your first encounter-it is the recipe you remember the best, after all.
+CHOICE1
+!+0(Hi!) 
+1: Nice to meet it again!
+!+1(Thoughts.) 
+1: It will be successful, just you watch.
+!+2(Run.) 
+1: Against the clock! Literally and figuratively.
+DIALOGUE
+0: The great metal beast only hums, but you think it sounds like it recognises you. With a grating screech of its gears and three distinct, loud clicks, time resumes its regular flow, and you are no longer being pulled into two different lanes. [newline] It gazes upon you, whirring as it cranes its body up and down. Then, it buzzes out something of an attempt at your tongue, recognisable by the cadence of its sounds and nothing more: hello.
+CHOICE2
+!+2(Charge.) 
+1: You run against the clock, slamming into the cold metal of its side.
+0: You know it is a beast, but it still staggers upon your impact. It gives a disapproving churn of its wheels, and one of its gears rotates back and forth as though it is a mother scolding a child with a wag of its finger. How humanly it acts for a mass of metal. 
+0: Still, it is a gentle and inquisitive mechanical beast, with no distaste towards humanity. It moves backwards, and before you can follow it, you notice that your movements are in slow-motion. You begin to pry your focus up from your own body to the beast before you, but you only catch wind of a gentle glow and sharp fizzles of light before your gaze can reach its destination.
+0: By the time your eyes reach where it used to be, it is gone, warping through time and space back to its home without another whir. At least you succeeded in the ritual.
+!+1(Praise.) 
+0: Its accent is perfect!
+!+0(Respond.) 
+0: Hello to you too!
+0: Before you can say anything else, it pulls off its next trick: by moving a gear back and forth, it perfectly replicates the action of waving. You are thrilled: who taught it that? Certainly not yourself-you just summon random beasts from their homeworld into your doorstep without so much as a “hi, how are you, sorry to bother”.
+0: Still, you must repay its politeness! You tell it your goals to find the Great Old One, and say you are pleased to see it again. It hums as it contemplates your words, revolving slowly before it stops. [newline] You feel the pull of time again as fizzling beams of light begin to emit from the beast. Time can't wait for everyone, you suppose; it is only natural for it to return home.
+0: Before it leaves, you feel its focus drill into you one last time, or at least before you decide to call it back again. It gives off a final mechanical sound, and you recognise it as another attempt at speech: bye-bye! 
+0: You bid it farewell in return, knowing you have the beast's recognition. You feel a step closer to reaching the Great Old One.

@@ -1,0 +1,24 @@
+0: The first thing you sense is warmth: that of a crowded hall, of bright lights and the rush of alcohol in your veins, the burn of adrenaline and the searing gaze of others as you perform endlessly. [newline] Unexpectedly, the entity before you looks quite similar to your own kind-odd, but you suppose these rituals do not specify what kind of creature you will meet, only that you will. The demon before you bows as you open your eyes at last. You wait for it to begin its speech, but realise it does not bear a mouth. This means it speaks no evil, at the very least. Still, it looks like it wants something from you. 
+CHOICE1
+!+1(Wait for it.) 
+0: Staring contest! This feels disrespectful..
+!+2(Deny it.) 
+0: No soliciting! Even though you brought it in here yourself!
+!+0(Welcome it.) 
+0: Nice to meet you!
+DIALOGUE
+0: It responds with a bright roar of its flame-head, and from its pocket it produces some sort of fire-resistant business card, carefully passing it over to you. You glance it over, but cannot make any sense of the language written on it. After a few more seconds of trying your knowledge of otherworldly languages, you put the business card away. When you glance up, you notice that the demon holds two glasses of some sort of liquid and is offering one to you. 
+CHOICE2
+!+2(Refuse.)
+0: No one wants any of its theatrics! 
+0: What does it think you are? Clearly it waited until you were distracted to offer you a drink. Everyone knows the saying: do not deal with the devil! It does not seem to recognise your offended state, and only continues to beam at you obnoxiously, fanning the flame of anger that sparks within you.
+0: You scoff and snatch the glass immediately from its hands-only to whip the content of the container into its face. It hisses and crackles in response, stumbling away from you with uneven steps. You realise the hissing is not a conscious choice, rather, it is the sound of its flames being put out. It had offered you a glass of water. You realise you have not had anything to eat or drink since you started working on the seances.
+0: Its figure dwindles and dwindles until nothing remains but a cloud of steam. It seems that not even its clothes or business cards are waterproof. It didn't think that through enough, clearly.
+0: You would've hoped it would put up more of a fight, but its humanly appearance fails to belie much about its nature. Oh, well. Better the devil that you know than one that you don't: looking like a mortal means it will simply be just as fragile as one.
+!+1(Observe it carefully.)
+0: What might that be?
+!+0(Casually accept it.)
+0: Well, if it insists!
+0: You are flattered, but you show restraint! It is common courtesy and basic etiquette, after all, to not look so greedy! Being cautious with your actions, the flameborn beast simply waits for your response with patience, not a single trace of urgency in its demeanour.
+0:That is, until the glasses in its hand begin to melt all over the ground, molten glass spilling across the summoning circle and tampering with the ritual. The blaze on its head blisters with alarm, and it backs away with its hands up, looking very apologetic and flustered. Rummaging through its pocket, it is only able to offer you another business card as consolation-it did not think this far.
+0: As it begins to return to its homeworld, it bows repeatedly in apology, and you are certain it did not stop even as it returned home. [newline] You glance over the card again-at least you'll be able to find it again someday, seeing as the meeting did not end on a burnt bridge. 

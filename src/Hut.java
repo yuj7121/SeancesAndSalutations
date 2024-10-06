@@ -34,18 +34,17 @@ public class Hut extends JPanel implements MouseListener, MouseMotionListener{
       collected = co;
       go = -1;
       hover = -1;
-
   
 
       addMouseMotionListener(this);
       addMouseListener(this);
       try{
-      bg = ImageIO.read(new File("lib/images/hut.png"));
-      bg = bg.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
-      circleRedLine = ImageIO.read(new File("lib/images/shelf1.png"));
-      recipesRedLine = ImageIO.read(new File("lib/images/shelf2.png"));
+         bg = ImageIO.read(new File("lib/images/hut.png"));
+         bg = bg.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
+         circleRedLine = ImageIO.read(new File("lib/images/shelf1.png"));
+         recipesRedLine = ImageIO.read(new File("lib/images/shelf2.png"));
       } catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "H: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "H: Error loading in image", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
       }
    }
 

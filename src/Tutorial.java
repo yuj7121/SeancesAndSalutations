@@ -55,7 +55,7 @@ public class Tutorial extends JPanel {
          dialogueIndex = 0;
       }
       catch (IOException e) {
-         JOptionPane.showMessageDialog(null, "D: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "T: Error loading in image", "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
       }
 
       try {
@@ -77,7 +77,7 @@ public class Tutorial extends JPanel {
          }
          file.close();
       } catch (Exception e){
-        JOptionPane.showMessageDialog(null, "D: Error loading in file: "+textsName, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "T: Error loading in file: "+textsName, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
       }
    }
    
@@ -96,7 +96,7 @@ public class Tutorial extends JPanel {
             continue;
          }
 
-         if (x + wordWidth >= startX + 800){
+         if (x + wordWidth >= startX + 1080){
             y += lineHeight;
             x = startX;
          }
@@ -129,7 +129,6 @@ public class Tutorial extends JPanel {
          write(g, texts[dialogueIndex/2], 130, 480);
       } else {
          write(g, texts[dialogueIndex/2].substring(0, typeWriterIndex), 130, 480);
-
       }
    }
 
@@ -140,7 +139,7 @@ public class Tutorial extends JPanel {
       if(timer != null && timer.isRunning()) {
          return;
       }
-      timer = new Timer(60,new AbstractAction() {
+      timer = new Timer(60, new AbstractAction() {
          @Override
          public void actionPerformed(ActionEvent e) {
             if(typeWriterIndex < text.length()) {
@@ -165,7 +164,7 @@ public class Tutorial extends JPanel {
          public void mouseClicked(MouseEvent e){
             dialogueIndex++;
             typeWriterIndex = 0;
-         }  
+         }
       });   
    }
    
@@ -176,6 +175,10 @@ public class Tutorial extends JPanel {
       getClick();
       while((dialogueIndex/2)<textsSize){
          revalidate();
+         if(typeWriterIndex >= texts[dialogueIndex/2].length() && typeWriterIndex > 0){
+            typeWriterIndex = 0;
+            dialogueIndex++;
+         }
          slowPrint();
       }
       return;

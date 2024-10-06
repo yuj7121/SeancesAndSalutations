@@ -17,7 +17,7 @@ import java.awt.event.*;
  * </p>
  */
 
-public class Dialogue extends JPanel {
+public class Dialogue extends JPanel implements MouseListener, MouseMotionListener{
    /** This Image variable stores the background image */
    private Image bg;
    /** This Image variable stores the instructions image */
@@ -26,16 +26,35 @@ public class Dialogue extends JPanel {
    private Image familiar; //the thing the witch is talking to
    private Image box; //pretty little textbox   
    /** This array of strings variable stores the all the texts to display */
-   private String[] texts = new String[30];
-   /** Stores who's speaking for that index. 0=familiar, 1=witch1, 2=witch2 */
-   private int[] who = new int[30]; //who's speaking??
-   private int textsSize = 0; //the size of the texts array
+   private String[] dialogue1 = new String[10];
+   private int[] who1 = new int[10]; //who's speaking?? 0=monster, 1=witch
+   private int d1Size = 0; //the size of the texts array
+   private String[] dialogue2 = new String[10];
+   private int[] who2 = new int[10]; //who's speaking??
+   private int d2Size = 0; //the size of the texts array
+   private String[] choices = new String[6];
+   private int[] choicePoints = new int[6];
+   private int choicesSize = 0;
+   private int[][] consWho = new int[6][10];
+   private int[] consIndSize = new int[6];
+   private String[][] consequence = new String[6][10];
+   private int consSize = -1;
+
    /** This integer variable stores where in the index the user is */
    private int dialogueIndex;
    /** timer for the typewriting stuff */
    private Timer timer;
    private int typeWriterIndex; //the index of the stirng we're on
+   private String currStr;
+   private int who; //the current who
    private Font font;
+   private int point;
+
+   private int hover; //where the mouse is hovering
+   private int clicked; //which option the user clicked on
+   private boolean choosing;
+   private int where; //0=d1, 1=choices1, 2=d2, 3=choices2
+
 
    /**
    * The constructor of the Dialogue class where the base of the thing is constructed,
@@ -43,7 +62,15 @@ public class Dialogue extends JPanel {
    *
    */
    public Dialogue(String name) {
-      
+      point = 0;
+      hover = -1;
+      clicked = -1;
+      where = 0;
+      dialogueIndex = 0;
+
+      addMouseMotionListener(this);
+      addMouseListener(this);
+
       font = new Font("georgia", Font.PLAIN, 24); 
       try{
          bg = ImageIO.read(new File("lib/images/hut.png"));
@@ -60,27 +87,187 @@ public class Dialogue extends JPanel {
 
       try {
          Scanner file = new Scanner(new File("lib/dialogues/"+name+".txt"));
+         int reading = 0; //0=d1, 1=choices1, 2=d2, 3=choice2
          while (file.hasNext())
          {
             String nextLine = file.nextLine();
-            char w = nextLine.charAt(0);
-            if(w == '0'){
-                who[textsSize] = 0;
-            } else if(w == '1'){
-                who[textsSize] = 1;
-            } else if(w == '2'){
-                who[textsSize] = 2;
-            }
-            //nextLine = nextLine.replaceAll("\\\\n", System.getProperty("line.separator"));
-            texts[textsSize] = nextLine.substring(3);            
-            textsSize++;
+            char first = nextLine.charAt(0);
+            if(first == 'C') {
+               if (reading == 0){
+                  reading = 1;
+               } else {
+                  reading = 3;
+               }
+            } else if (first == 'D'){
+               reading = 2;
+            } else if (reading == 0){
+               if(first == '0'){
+                  who1[d1Size] = 0;
+               } else {
+                  who1[d1Size] = 1;
+               }
+               dialogue1[d1Size] = nextLine.substring(3);            
+               d1Size++;
+            } else if(reading == 1 || reading == 3){
+               if(first == '!'){
+                  if(nextLine.charAt(1) == '+'){
+                     choicePoints[choicesSize] = nextLine.charAt(2) - '0';
+                  } else {
+                     choicePoints[choicesSize] = -1 * (nextLine.charAt(2) - '0');
+                  }
+                  choices[choicesSize] = nextLine.substring(4);
+                  choicesSize++;
+                  consSize++;
+               } else {
+                  if(first == '0'){
+                     consWho[consSize][consIndSize[consSize]] = 0;
+                  } else {
+                     consWho[consSize][consIndSize[consSize]] = 1;
+                  }
+                  consequence[consSize][consIndSize[consSize]] = nextLine.substring(3);            
+                  consIndSize[consSize]++;
+               }
+            } else if (reading == 2){
+               if(first == '0'){
+                  who2[d2Size] = 0;
+               } else {
+                  who2[d2Size] = 1;
+               }
+               dialogue2[d2Size] = nextLine.substring(3);            
+               d2Size++;
+            } 
          }
          file.close();
       } catch (Exception e){
-        JOptionPane.showMessageDialog(null, "D: Error loading in file: "+textsName, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
+         JOptionPane.showMessageDialog(null, "D: Error loading in file: "+name, "My Little Eldritch", JOptionPane.WARNING_MESSAGE);
       }
    }
-   
+
+   public void mousePressed(MouseEvent e){
+      int x = e.getX();
+      int y = e.getY();
+      typeWriterIndex = 0;
+      if(!choosing){
+         dialogueIndex++;
+         if(where == 0){
+            if(d1Size == (dialogueIndex+1)/2) {
+               where = 1;
+               choosing = true;
+            } else {
+               currStr = dialogue1[(dialogueIndex)/2];
+               who = who1[(dialogueIndex)/2];
+            }
+         } else if(where == 1){
+            if((dialogueIndex+1)/2 == consIndSize[clicked - 1]){
+               where = 2;
+               choosing = false;
+            } else {
+               currStr = consequence[consIndSize[clicked - 1]][(dialogueIndex)/2];
+               who = consWho[consIndSize[clicked - 1]][(dialogueIndex)/2];
+            }
+         } else if(where == 2){
+            if(d2Size == (dialogueIndex+1)/2) {
+               where = 3;
+               choosing = true;
+            } else {
+               currStr = dialogue2[(dialogueIndex)/2];
+               who = who2[(dialogueIndex)/2];
+            }
+         } else if (where == 3) {
+            if((dialogueIndex)/2 == consIndSize[clicked + 3 - 1]){
+               where = 4;
+               choosing = true;
+            } else {
+               currStr = consequence[consIndSize[clicked + 3 - 1]][(dialogueIndex)/2];
+               who = consWho[consIndSize[clicked + 3 - 1]][(dialogueIndex)/2];
+            }
+         }
+         return;
+      }
+      
+      if(x>60 && x<660 && y>420 && y<570){
+         clicked = 1;
+      } else if(x>660 && x<1260 && y>420 && y<570){
+         clicked = 2;
+      } else if(x>60 && x<660 && y>570 && y<720){
+         clicked = 3;
+      } else {
+         clicked = -1;
+         return;
+      }
+      if(where == 1){
+         currStr = consequence[clicked - 1][0];
+      } else {
+         currStr = consequence[clicked - 1 + 3][0];
+      }
+      dialogueIndex = 0;
+      choosing = false;
+      System.out.println(clicked);
+   }
+
+   public void mouseMoved(MouseEvent e){
+      int x = e.getX();
+      int y = e.getY();
+      if(!choosing){
+         return;
+      }
+
+      if(x>60 && x<660 && y>420 && y<570){
+         hover = 1;
+      } else if(x>660 && x<1260 && y>420 && y<570){
+         hover = 2;
+      } else if(x>60 && x<660 && y>570 && y<720){
+         hover = 3;
+      } else{
+         hover = -1;
+      }      
+   }
+
+   public void mouseDragged(MouseEvent e){}
+   public void mouseClicked(MouseEvent e){}
+   public void mouseExited(MouseEvent e){}
+   public void mouseEntered(MouseEvent e){}
+   public void mouseReleased(MouseEvent e){}
+
+   /**
+    * This method will be called when repaint() is called 
+    * It draws the main menu depending on the input
+    * @param g This is the graphics where the main menu will be drawn
+    */
+   @Override
+   protected void paintComponent(Graphics g) {
+      super.paintComponent(g);
+      g.setFont(font);
+
+      g.drawImage(bg, 0, 0, null);
+      if(who == 0){
+         g.drawImage(familiar, 100, 200, null);
+      } else if (who == 1){
+         g.drawImage(witch1, 800, 200, null);
+      } else {
+         g.drawImage(witch2, 800, 200, null);
+      }
+      g.drawImage(box, 60, 420, null);
+
+      if(choosing){
+         int temp = 0;
+         if(where == 3){
+            temp = 3;
+         }
+
+         g.drawString("> " + choices[0+temp], 160, 500);
+         g.drawString("> " + choices[1+temp], 760, 500);
+         g.drawString("> " + choices[2+temp], 160, 650);
+         return;
+      }
+
+      if(dialogueIndex%2 != 0){
+         write(g, currStr, 130, 480);
+      } else {
+         write(g, currStr.substring(0, typeWriterIndex), 130, 480);
+      }
+   }
+
    void write(Graphics g, String text, int startX, int startY){
       int lineHeight = g.getFontMetrics().getHeight();
       int x = startX;
@@ -95,8 +282,7 @@ public class Dialogue extends JPanel {
             x = startX;
             continue;
          }
-
-         if (x + wordWidth >= startX + 800){
+         if (x + wordWidth >= startX + 1080){
             y += lineHeight;
             x = startX;
          }
@@ -105,46 +291,16 @@ public class Dialogue extends JPanel {
       }
    }
 
-   /**
-    * This method will be called when repaint() is called 
-    * It draws the main menu depending on the input
-    * @param g This is the graphics where the main menu will be drawn
-    */
-   @Override
-   protected void paintComponent(Graphics g) {
-      super.paintComponent(g);
-      g.setFont(font);
-
-      g.drawImage(bg, 0, 0, null);
-      if(who[dialogueIndex/2] == 0){
-         g.drawImage(familiar, 100, 200, null);
-      } else if (who[dialogueIndex/2] == 1){
-         g.drawImage(witch1, 800, 200, null);
-      } else {
-         g.drawImage(witch2, 800, 200, null);
-      }
-      g.drawImage(box, 60, 420, null);
-
-      if(dialogueIndex%2 != 0){
-         write(g, texts[dialogueIndex/2], 130, 480);
-      } else {
-         write(g, texts[dialogueIndex/2].substring(0, typeWriterIndex), 130, 480);
-
-      }
-   }
-
-   
    //will print out the text one by one
    private void slowPrint(){
-      String text = texts[dialogueIndex/2];
       if(timer != null && timer.isRunning()) {
          return;
       }
       timer = new Timer(60,new AbstractAction() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            if(typeWriterIndex < text.length()) {
-               //revalidate();
+            if(typeWriterIndex < currStr.length()) {
+               revalidate();
                repaint();
                typeWriterIndex++;
             } else {
@@ -156,28 +312,52 @@ public class Dialogue extends JPanel {
    }
    
 
-  /**
-   * This method retrieves the user's mouse input using a graphic coordinate system
-   * and increases the counter variable for each click the user does
-   */
-   private void getClick(){
-      addMouseListener(new MouseAdapter(){
-         public void mouseClicked(MouseEvent e){
-            dialogueIndex++;
-            typeWriterIndex = 0;
-         }  
-      });   
+
+   private void printDialogue(int[] who, String[] lines, int size){
+      for(int i = 0; i < size; i++){
+         currStr = lines[i];
+         //System.out.println(lines[i]);
+      }
+   }
+
+   private void runChoices(int start){
+      for(int i = start; i < start + 3; i++){
+         choosing = true;
+         //System.out.println("choice "+i+" is: "+choices[i]);
+         //System.out.println("choice "+i+" points: "+choicePoints[i]);
+         //System.out.println("choice "+i+" results in: ");
+         printDialogue(consWho[i], consequence[i], consIndSize[i]);  
+         //System.out.println("<<<<<<<<<< that was choice "+i);     
+      }
+   }
+
+   private void runScripts(){
+      //System.out.println("First Dialogue____________________");
+      printDialogue(who1, dialogue1, d1Size);
+      //System.out.println("First QNA____________________");
+      runChoices(0);
+      //System.out.println("Second Dialogue____________________");
+      printDialogue(who2, dialogue2, d2Size);
+      //System.out.println("Second QNA____________________");
+      runChoices(3);
+      
    }
    
    /**
     * This method allows the user to cycle through all of the information slides in level one
     */  
-   public void run() {
-      getClick();
-      while((dialogueIndex/2)<textsSize){
+   public int run() {
+      //runScripts();
+      currStr = dialogue1[0];
+      while(where != 4){
          revalidate();
+         if(typeWriterIndex >= currStr.length()){
+            dialogueIndex++;
+            typeWriterIndex = 0;
+         }
          slowPrint();
+         //runScripts();
       }
-      return;
-   } 
+      return point;
+   }
 }

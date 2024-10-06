@@ -42,7 +42,7 @@ public class Pet extends JPanel {
      * initializing variables using parameters
      *
      */
-    public Dialogue(String familiarName, String textsName) {
+    public Pet(String familiarName, String textsName) {
         
         font = new Font("georgia", Font.PLAIN, 24); 
         try{

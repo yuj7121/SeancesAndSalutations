@@ -1,0 +1,33 @@
+0: Hi hello im 0 d fsadj fkdlsjfdsjlfjdlsflds fdjksf sd flkjdh jsd break here fkdsfjds dlfj lkdsj fldsj a a a a fldjslfjdkl a fjdskjf djflkdjslk djslf jdsf ldks jflkdsj fkldsj flksdjfklsdj fkldsjfklsj fjdlf jdlsfj kldsj fldsjf lk;dsjflkdsj fkldskjafj dsklfjdskfjdslkfjkldsjf kldsjfkldsjfklsdjflsdjflkj dfjdlsfjdlksfjkldsjfkldsjflkds dfjldsjfldsjfldsjfldjklf dslfldf kldsfldjlf sd;lf djslfjsd;l sjfdhjf dks aaaaaaaaaaa aaaaaa aaaaaaa aaaaaaaa aaaaaaaaaa bbbbbbbb ccccccccccc ddddddd dddddddddddddddddddd eeeeeeeeeeeeeeeeeeeeeeeeee fffffffffffffffffffffffffffffff ggggggggggggggggggggggggggg hhhhhhhhhhhhhhhhhhhhhhh iiiiiiiiiiiiiiiiiiii jjjjjjjjjjjjjjjjjj kkkkkkkkkkkk lllllllllllll mmmmmmmmmmmmmmmmmmmmmm nnnnnnnnnnnnnn oooooooooooo pppppppppppplkds END0
+1: okok im 1 haha d fdsfdsfj hf dslk dsjkfhsdjklhf dh fds dshjkfshkj fdhjk dkj kjdsh kdshf dh jkfsdjkf sdjkf hsdjkf hkjdsh kdshf dshfj kdshkf dhjkf hsdjkf hsdjkfh hf kjdsh fksdah dsh dhjkf hsdkf END1
+2: yayyy im 2 dj kjsdfkjdshfkdskjf dsjkf sdjkfhdjshfjsdhkjfdhjkf hsdjkf hdsf hksdj  dfjkdhfkjdfdjkfhd sdjk djk fdjs dsfdsh ds fhjkfh k hds dshf dskjfhsjkl END2
+1: second attemps 1 djfskfal
+0: ejfsdfhkjshlkfhdkjf 0  djfks
+2: this is 2 again ayya
+CHOICE1
+!+2 thefirstanswer
+1: > narration that is the first answer
+0: for frist answer1end
+!+2 the second anser
+1: > narration2end
+!-4 the third answer
+1: witch3 speaksend
+DIALOGUE
+0: smth smth the creature says smth
+1: omg wow you speak
+0: kdfjsjf kfjdsjfls fkldsjflkdjlfjsdfdskjf d kdjfsdjfk slf sds kdsl
+0: d jflsdjf djfdk sdklfklsdfdjslfj dfjdsk klds lds
+0: dkljf lds flkdjfldklf jdsl dklsjf kldsjf kldjf kldsklf jdskl klsdf jls
+CHOICE2
+!+2 the first response
+0: the creature says something back
+0: wow more stuffs
+0: wow even more yayyyyy all these in response to answer 1end
+!-2 the second response
+0: the creature says something in response to response 2
+0: even more replyend
+1: witch replies back or smth
+!+0 the third response
+0: smth smth
+0: in response to third responseend
+

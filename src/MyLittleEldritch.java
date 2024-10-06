@@ -54,7 +54,7 @@ public class MyLittleEldritch{///
       
    //runs the little tutorial dialogue
    private void runTutorial(){
-      Tutorial d = new Tutorial("tutorial", "tutorial");
+      Tutorial d = new Tutorial("wind", "earth");
       frame.add(d);
       d.run();
       frame.remove(d);
@@ -109,7 +109,7 @@ public class MyLittleEldritch{///
             break;
          default:
             creature = " ";
-            text = " ";
+            break;
       }
       Dialogue dialogue = new Dialogue(creature);
       frame.add(dialogue);
@@ -130,8 +130,10 @@ public class MyLittleEldritch{///
       setFrame();
 
       //runSplash();
-      //runTutorial();
+      runTutorial();
       
+      System.out.println(runDialogue(25));
+
       go = runHut();
 
       while (go != 3) {

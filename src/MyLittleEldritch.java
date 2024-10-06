@@ -10,7 +10,7 @@ import java.awt.GraphicsEnvironment;
 
 // main class
   
-public class MyLittleEldritch{
+public class MyLittleEldritch{///
    /** This is the main Jframe used for this game */
    private JFrame frame;////
    private boolean[] killed;

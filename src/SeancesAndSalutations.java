@@ -162,7 +162,7 @@ public class SeancesAndSalutations{///
       setFrame();
 
       //runCthulu();
-      runDialogue(25);
+      //runDialogue(25);
 
 
       runSplash();

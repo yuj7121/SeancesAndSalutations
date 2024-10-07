@@ -89,8 +89,6 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
          while (file.hasNext())
          {
             String nextLine = file.nextLine();
-            nextLine.replaceAll("\u2019", "'");
-            nextLine.replaceAll("\u2018", "'");
             char first = nextLine.charAt(0);
             if(first == 'C') {
                if (reading == 0){
@@ -162,7 +160,8 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
             if((dialogueIndex)/2 == consIndSize[clicked - 1]){
                dialogueIndex = 0;
                where = 2;
-               System.out.println("where=2 now");
+               currStr = dialogue2[(dialogueIndex)/2];
+               who = who2[(dialogueIndex)/2];
                choosing = false;
             } else {
                currStr = consequence[clicked - 1][(dialogueIndex)/2];
@@ -172,7 +171,6 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
             if(d2Size == (dialogueIndex)/2) {
                dialogueIndex = 0;
                where = 3;
-               System.out.println("where=3 now");
                choosing = true;
             } else {
                currStr = dialogue2[(dialogueIndex)/2];
@@ -180,10 +178,9 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
             }
          } else if (where == 3) {
            if((dialogueIndex)/2 == consIndSize[clicked + 3 - 1]){
-               System.out.println("where=4 now");
                dialogueIndex = 0;
                where = 4;
-               choosing = true;
+               choosing = false;
             } else {
                currStr = consequence[clicked + 3 - 1][(dialogueIndex)/2];
                who = consWho[clicked + 3 - 1][(dialogueIndex)/2];
@@ -200,23 +197,24 @@ public class Dialogue extends JPanel implements MouseListener, MouseMotionListen
          clicked = 3;
       } else {
          clicked = -1;
-         System.out.println("return");
          choosing = true;
          return;
       }
       choosing = false;
 
+      dialogueIndex = 0;
       if(where == 1){
          currStr = consequence[clicked - 1][0];
+         //System.out.println("where=1, clicked = "+clicked);
          point += choicePoints[clicked - 1];
+         //System.out.println("str:"+currStr);
 
       } else if (where == 3){
-         System.out.println("where=3, clicked = "+clicked);
+         //System.out.println("where=3, clicked = "+clicked);
          currStr = consequence[clicked - 1 + 3][0];
-         System.out.println("str:"+currStr);
+         //System.out.println("str:"+currStr);
          point += choicePoints[clicked - 1 + 3];
       }
-      dialogueIndex = 0;
       //System.out.println(point);
    }
 

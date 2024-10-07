@@ -3,18 +3,18 @@ CHOICE1
 !+2(Force its attention.) 
 0: > The wind is naught but null in a vacuum. 
 !+0(Wait.) 
-0: > All things worth any value come with the price of patience—let it do as it pleases.
+0: > All things worth any value come with the price of patience - let it do as it pleases.
 !+1(Speak assertively.) 
 0: > What are words if not coloured breezes to tarry among the clouds?
 DIALOGUE
-0: > What fate! it stills before you languidly with what you think to be curiosity. you feel a calmness wash over you as though you stand in the eye of a hurricane—it blinks peacefully, and you feel its interest: what does one require?
+0: > What fate! it stills before you languidly with what you think to be curiosity. you feel a calmness wash over you as though you stand in the eye of a hurricane - it blinks peacefully, and you feel its interest: what does one require?
 CHOICE2	
 !+2(Answers. Now.) 
 0: > A being like you does not stall for others.
 0: > The eye blinks back at you slowly, somewhat uncharacteristic of a being born from the essence of a tempest. It begins to fade, your words going out of one non-existent ear and out the other. [newline] You do not want it to leave. In fact, you will make it stay. You lurch forward and smear the chalk of the magic circle, effectively trapping the mistral creature in a foreign world. 
-0: > You hurl the nearest object at it—a gold bar from your stash, a staple in occultism. It gets enveloped by the voltage-filled wings of the beast, sparks flying and amping up into an electrifying light show. [newline] You instinctively shut your eyes, and open them once you see the light fade through your eyelids. You see the last remnants of a storm cloud from its rapidly fading form, having blasted itself out of energy. You conquered the zephyr today.
+0: > You hurl the nearest object at it - a gold bar from your stash, a staple in occultism. It gets enveloped by the voltage-filled wings of the beast, sparks flying and amping up into an electrifying light show. [newline] You instinctively shut your eyes, and open them once you see the light fade through your eyelids. You see the last remnants of a storm cloud from its rapidly fading form, having blasted itself out of energy. You conquered the zephyr today.
 !+1(Tailwind.) 
-0: The required diligence to soar past your limits—you have always been ambitious.
+0: The required diligence to soar past your limits - you have always been ambitious.
 !+0(A song.) 
 0: What melodies dance upon the wind today? What wisdom will it bring?
 0: > You hear a tinkle of bells upon the gales, riding in from a distant world and casting about the saccharine scent of sweet meadows, sunlight and floral notes splashing across your senses. You think it looks homesick. [newline] As you bow to the higher being, it flutters closer, its singular teal oculus observing you with detail. [newline] Then, it vanishes before you can even blink, dissipating into cloud-like particles, glinting joyfully despite the dim lighting of your home. It almost feels like a gift; it seems to approve of you.

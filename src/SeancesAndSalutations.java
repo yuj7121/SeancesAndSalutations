@@ -27,7 +27,6 @@ public class SeancesAndSalutations{///
       for(int i = 0; i < 12; i++){
          collected[i] = true;
       }
-      
    }
 
    
@@ -163,6 +162,7 @@ public class SeancesAndSalutations{///
       setFrame();
 
       //runCthulu();
+      runDialogue(25);
 
 
       runSplash();

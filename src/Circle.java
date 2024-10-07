@@ -216,14 +216,14 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
                     result = 15;
                 } else if(big==10){
                     result = 21;
+                } else if(big==16){
+                    result = 27;
                 }
                 break;
             case 7:
                 if(big==14){
                     result = 25;
-                } else if(big==16){
-                    result = 27;
-                }
+                } 
                 break;
             case 8:
                 if(big==10){

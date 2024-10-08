@@ -1,5 +1,5 @@
 0: You hear a slow, heavy creaking sound, like that of an unoiled door hinge being pried open by unwelcome hands. When you open your eyes, you feel your energy being sapped, bones becoming brittle and nerves becoming slow. 
-0: A creature of wizened bark simply lives, breathes in your presence—without even hearing or seeing it react, you can tell it shows contempt towards you, despite its seemingly peaceful appearance. 
+0: A creature of wizened bark simply lives, breathes in your presence - without even hearing or seeing it react, you can tell it shows contempt towards you, despite its seemingly peaceful appearance. 
 0: You crane your head forward, your eyelids heavy, wanting nothing more than to make your bed with a mattress of mulch and blanket of leaves. What is the reason behind this..?
 CHOICE1
 !+1(Apologise). 

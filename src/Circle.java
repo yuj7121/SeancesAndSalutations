@@ -69,7 +69,7 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         result = -1;
         showBox = false;
 
-        iconNum = 23;
+        iconNum = 22;
         iconSize = 135;
         iconStartx = 640;
         iconStarty = 20;

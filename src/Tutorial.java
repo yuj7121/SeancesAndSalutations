@@ -98,7 +98,7 @@ public class Tutorial extends JPanel {
             continue;
          }
 
-         if (x + wordWidth >= startX + 1080){
+         if (x + wordWidth >= startX + 1060){
             y += lineHeight;
             x = startX;
          }
@@ -174,12 +174,12 @@ public class Tutorial extends JPanel {
    public void run() {
       getClick();
       //FIX BUG HERE idalogueIndex should'nt have +1 but this is the only way
-      while(((dialogueIndex+1)/2) < textsSize){
-         revalidate();
+      while(((dialogueIndex)/2) < textsSize){
          if(typeWriterIndex > texts[dialogueIndex/2].length() && typeWriterIndex > 0){
             typeWriterIndex = 0;
             dialogueIndex++;
          }
+         revalidate();
          repaint();
          slowPrint();
       }

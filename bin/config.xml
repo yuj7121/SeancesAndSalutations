@@ -26,11 +26,11 @@
     <maxVersion></maxVersion>
   </jre>
   <versionInfo>
-    <fileVersion>1.0.0.0</fileVersion>
+    <fileVersion>1.0.1.0</fileVersion>
     <txtFileVersion>1</txtFileVersion>
     <fileDescription>Seances and Salutations</fileDescription>
     <copyright>Cynthia Kwok and Yujin Bae</copyright>
-    <productVersion>1.0.0.0</productVersion>
+    <productVersion>1.0.1.0</productVersion>
     <txtProductVersion>1</txtProductVersion>
     <productName>Seances and Salutations</productName>
     <companyName>Cynthia Kwok and Yujin Bae</companyName>

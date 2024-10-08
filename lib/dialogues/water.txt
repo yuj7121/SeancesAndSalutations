@@ -19,7 +19,7 @@ CHOICE2
 0: Oh. Well.. At least you have all this loot. Something tells you this was not the right idea, but there's no turning back time. Every man for themselves, right?
 !+0(Examine it closer.) 
 0: As an abyssal creature, it must not be able to make many sounds. Visual cues, then! 
-1+1(Ask about it.) 
+!+1(Ask about it.) 
 0: What could it be looking at? Hellooo? Anyone in there?
 0: The creature hesitates, then shakes its head rapidly before motioning at something behind you. It's your turn to hesitate next, then, but you give in to the curiosity. You turn to gaze at a cauldron of a shimmering liquid, a discarded batch of potions that you have not thrown out yet. 
 0: When you turn to the leviathan again, you seem to have gained a significant amount of insight. [newline] You notice the curled, frayed edges of its fins, the quiet rasps it emits with every breath it takes in the arid, terrestrial environment. It is out of its element: it is perishing quickly. You meet its multi-eyed gaze once more: a mutual understanding is passed between the two of you. 

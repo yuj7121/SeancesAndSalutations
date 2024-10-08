@@ -29,9 +29,7 @@ public class Recipes extends JPanel implements MouseListener{
     /** list of all icon images to be stores here */
     private Image[] icons; 
     private Image locked; //locked image
-    private boolean[] killed;
     private boolean[] collected;
-    private int choices;
     private String[] names;
     private String[] formula;
     private String[] unknown_formula;
@@ -46,10 +44,8 @@ public class Recipes extends JPanel implements MouseListener{
     private Font georgiaI;
 
 
-    public Recipes (boolean[] k, boolean[] col, int cho){
-        killed = k;
+    public Recipes (boolean[] col){
         collected = col;
-        choices = cho;
         
         exit = false;
         icons = new Image [30];

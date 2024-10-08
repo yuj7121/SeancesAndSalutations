@@ -1,5 +1,5 @@
 0: The Great Old One reveals itself before you at last! [newline] You are laced with traces from the other eldritch beasts, ichor and essences alike. It is only natural you have finally garnered its attention.
 0: Initially, you do not think it is pleased with you. Then, you feel a slight waver in its psionic energy, a revelation of weakness. You peel back the layers, delving further into the unknown as you fight against its hypnosis. [newlines] It knows of your conquests. It knows you are brave.
 0: Cruel human. You hear that one word from it. It fills you with glee. No, you respond telepathically. I am a conqueror. We can work together. 
-0: It has not escaped your mind that the Great Old One brings about doom and gloom. You delight in it: that’s why you did this to begin with. Your brainwaves hum in unison as you both lay down your conditions.
+0: It has not escaped your mind that the Great Old One brings about doom and gloom. You delight in it: that's why you did this to begin with. Your brainwaves hum in unison as you both lay down your conditions.
 0: And, it agrees, yes.

@@ -37,7 +37,7 @@ public class SeancesAndSalutations{///
       frame.setSize(1366, 768);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
-      frame.setResizable(false);
+      frame.setResizable(true);
       frame.setLocationRelativeTo(null);
    }
    
@@ -77,16 +77,27 @@ public class SeancesAndSalutations{///
    }
 
    private int runRecipes(){
-      Recipes recipes = new Recipes(killed, collected, choices);
+      Recipes recipes = new Recipes(collected);
       frame.add(recipes);
       recipes.run();
       frame.remove(recipes);
       return 0;
    }
+   
+   private int runSettings(){
+      int res = 0;
+      Settings settings = new Settings();
+      settings.init(killed, collected, choices);
+      frame.add(settings);
+      res = settings.run();
+      frame.remove(settings);
+      return res;
+   }
 
    private int runDialogue(int number){
       String creature;
       int points;
+      collected[number] = true;
       number++;
       switch (number){
          case 23:
@@ -157,13 +168,9 @@ public class SeancesAndSalutations{///
     * and acts as the main game runner
     */
    public void run(){  
-      int go = 0; //0=hut, 1=circle, 2=recipes, 3=quit, else dialogue
+      int go = 0; //0=hut, 1=circle, 2=recipes, 4=settings, -1=quit, else dialogue
 
       setFrame();
-
-      //runCthulu();
-      //runDialogue(25);
-
 
       runSplash();
       runTutorial("tutorial", "tutorial");
@@ -171,10 +178,12 @@ public class SeancesAndSalutations{///
 
       go = runHut();
 
-      while (go != 3) {
+      while (go != -1) {
          if(checkCollection()){
-            go = 3;
+            go = -1;
             //System.out.println("YHHAYY)");
+            runCthulu();
+            break;
          }
 
          switch (go){
@@ -187,17 +196,17 @@ public class SeancesAndSalutations{///
             case 2: //recipes
                go = runRecipes();
                break;
+            case 3: //settings
+               //go = runSettings();
+               break;
             default: //dialogue
-            System.out.println("go:"+go);
                collected[go] = true;
-               runDialogue(go);
+               choices += runDialogue(go);
                go = 0;
                break;
          }
       }
 
-      runCthulu();
-      
       runSplash();
       frame.setVisible(false);
       frame.dispose();

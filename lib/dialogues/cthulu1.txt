@@ -1,5 +1,5 @@
 0: The Great Old One reveals itself before you at last! [newline] You are laced with traces from the other eldritch beasts, ichor and essences alike. It is only natural you have finally garnered its attention.
 0: Initially, you do not think it is pleased with you. You find yourself at a loss for words, unable to speak as you gaze back into its terrifying form, feeling your mind slipping. 
-0: No. It is pleased with you, very much so, you realise. You lose control of yourself: it is so pleased with your presence! [newline] You can only make one word, one single thought that you can recognise from it as you succumb to its psionic energies, and you are enthralled: pawn. 
+0: No. It is pleased with you, very much so, you realise. You lose control of yourself. It is so pleased with your presence! [newline] You can only make one word, one single thought that you can recognise from it as you succumb to its psionic energies, and you are enthralled: pawn. 
 0: Welcome to your new life.
 

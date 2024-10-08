@@ -70,10 +70,10 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         showBox = false;
 
         iconNum = 23;
-        iconSize = 140;
-        iconStartx = 740;
+        iconSize = 135;
+        iconStartx = 640;
         iconStarty = 20;
-        numCol = 4;
+        numCol = 5;
 
         addMouseMotionListener(this);
         addMouseListener(this);
@@ -151,12 +151,12 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
             return;
         }
 
-        if(x>50 && x<220 && y>600 && y<660){
+        if(x>40 && x<210 && y>600 && y<660){
             go = true;
-        } else if(x>250 && x<420 && y>600 && y<660){
+        } else if(x>240 && x<410 && y>600 && y<660){
             element1 = -1;
             element2 = -1;
-        } else if(x>450 && x<620 && y>600 && y<660){
+        } else if(x>440 && x<610 && y>600 && y<660){
             element1 = -1;
             element2 = -1;
             exit = true;
@@ -216,10 +216,12 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
                     result = 15;
                 } else if(big==10){
                     result = 21;
-                } else if(big==16){
+                } 
+                break;
+            case 6:
+                if(big==16){
                     result = 27;
                 }
-                break;
             case 7:
                 if(big==14){
                     result = 25;
@@ -290,12 +292,12 @@ public class Circle extends JPanel implements MouseListener, MouseMotionListener
         g.setFont(broadway);
 
         g.drawImage(bg, 0, 0, null);
-        g.drawImage(button, 50, 600, null);
-        g.drawString("Go", 115, 638);
-        g.drawImage(button,250, 600, null);
-        g.drawString("Reset", 295, 638);
-        g.drawImage(button, 450, 600, null);
-        g.drawString("Exit", 505, 638);
+        g.drawImage(button, 40, 600, null);
+        g.drawString("Go", 105, 638);
+        g.drawImage(button,240, 600, null);
+        g.drawString("Reset", 285, 638);
+        g.drawImage(button, 440, 600, null);
+        g.drawString("Exit", 495, 638);
 
         if(element1 != -1){
             g.drawImage(icons[element1], 100, 150, null);

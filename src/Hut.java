@@ -86,14 +86,7 @@ public class Hut extends JPanel implements MouseListener, MouseMotionListener{
       } else if(x>960 && x<1366 && y>0 && y<580){
          hover = 1;
          repaint();
-      } 
-      /*/
-      else if(x>970 && x < 1170 && y>610 && y<690){
-         hover = 2;
-         repaint();
-      } 
-         */
-        else {
+      } else {
          hover = -1;
          repaint();
       }

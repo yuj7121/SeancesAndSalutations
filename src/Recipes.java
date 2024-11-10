@@ -1,15 +1,9 @@
-import java.awt.Image;
-import java.awt.Graphics;
-import java.io.IOException;
-import java.io.File;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
-import java.util.Scanner;
-import java.awt.Font;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import java.io.*;
+import java.util.Scanner;
 
 /**
  * This class is the recipes that will show th euser the recipe book
@@ -24,11 +18,15 @@ import javax.swing.JPanel;
  * </p>
  */
 
-public class Recipes extends JPanel implements MouseListener{
+public class Recipes extends JPanel implements MouseListener, MouseMotionListener{
     private Image bg; //bg image
+    private int go; //0=continue, 1=main menu, 2=settings
+    private boolean hover;
     /** list of all icon images to be stores here */
     private Image[] icons; 
     private Image locked; //locked image
+    private Image button; //button image
+    private Image redButton; //the red button when hovered
     private boolean[] collected;
     private String[] names;
     private String[] formula;
@@ -39,22 +37,24 @@ public class Recipes extends JPanel implements MouseListener{
     private int iconSizex = 220;
     private int iconSizey = 135;
     private int numCol = 6;
-    private boolean exit;
     private Font georgia;
     private Font georgiaI;
+    private Font broadway;
+    private Color purple;
 
 
     public Recipes (boolean[] col){
+        hover = false;
+        go = 0;
         collected = col;
-        
-        exit = false;
         icons = new Image [30];
         formula = new String [30];
         unknown_formula = new String [30];
         names = new String [30];
         georgia = new Font("Georgia", Font.BOLD, 16);
         georgiaI = new Font("Georgia", Font.ITALIC, 14);
-
+        broadway = new Font("Broadway", Font.PLAIN, 40);
+        purple = new Color (40, 15, 35); 
 
         addMouseListener(this);
 
@@ -68,6 +68,11 @@ public class Recipes extends JPanel implements MouseListener{
             bg = ImageIO.read(new File("lib/images/recipes_bg.png"));
             locked = ImageIO.read(new File("lib/images/icons/locked.png"));
             locked = locked.getScaledInstance(60, 60, Image.SCALE_DEFAULT);
+            button = ImageIO.read(new File("lib/images/button.png"));
+            button = button.getScaledInstance(260, 80, Image.SCALE_DEFAULT);
+            redButton = ImageIO.read(new File("lib/images/redButton.png"));
+            redButton = redButton.getScaledInstance(260, 80, Image.SCALE_DEFAULT);
+
             for(int i = 0; i < iconNum; i++){
                 int temp = i + 1;
                 icons[i] = ImageIO.read(new File("lib/images/icons/"+temp+".png"));
@@ -115,12 +120,54 @@ public class Recipes extends JPanel implements MouseListener{
         }
     }
 
+    public void mousePressed(MouseEvent e){
+        int x = e.getX();
+        int y = e.getY();
+        if(x>960 && x<1220 && y>600 && y<680) { //if button pressed
+            go = 2;
+        } else {
+            go = 1;
+        }
+    }
+
+    public void mouseMoved(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if(x>0 && y>0){
+            hover = true;
+            repaint();
+        }
+        if(x>960 && x<1220 && y>600 && y<680) { //if button hovered
+            hover = true;
+            repaint();
+        } else {
+            hover = false;
+            repaint();
+        }
+    }
+    
+    public void mouseDragged(MouseEvent e){}
+    public void mouseClicked(MouseEvent e){}
+    public void mouseExited(MouseEvent e){}
+    public void mouseEntered(MouseEvent e){}
+    public void mouseReleased(MouseEvent e){}
+
+
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.setColor(new Color (240, 215, 235)); 
-
         g.drawImage(bg, 0, 0, null);
+
+        if(hover){
+            g.drawImage(redButton, 960, 600, null);
+        } else {
+            g.drawImage(button, 960, 600, null);
+        }
+        g.setColor(purple);
+        g.setFont(broadway);
+        g.drawString("Settings", 1000, 653);
+
+        g.setColor(new Color (240, 215, 235)); 
         for(int i = 0; i < iconNum; i++){
             Image curr;
             String str;
@@ -143,26 +190,14 @@ public class Recipes extends JPanel implements MouseListener{
                 g.drawString("+ "+str.substring(here + 2), iconStartx + iconSizex*(i%numCol), 115 + iconStarty + iconSizey*(i/numCol));    
             }
         }
-
-       
     }
 
-    public void mouseClicked(MouseEvent e){
-        exit = true;
-        return;
-    }
-
-    public void mousePressed(MouseEvent e){}
-    public void mouseExited(MouseEvent e){}
-    public void mouseEntered(MouseEvent e){}
-    public void mouseReleased(MouseEvent e){}
-
-
-    public void run() {
-        while(!exit){
+    public int run() {
+        while(go == 0){
             revalidate();
             repaint();
         }
+        return go;
     }
 
 }

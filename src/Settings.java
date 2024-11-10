@@ -4,7 +4,6 @@ import java.awt.event.*;
 import javax.imageio.ImageIO;
 import java.io.*;
 import java.util.Scanner;
-import java.io.FileWriter;
 
 
 /**
@@ -54,9 +53,9 @@ public class Settings extends JPanel implements MouseListener, MouseMotionListen
             bg = ImageIO.read(new File("lib/images/recipes_bg.png"));
             bg = bg.getScaledInstance(1366, 768, Image.SCALE_DEFAULT);
             button = ImageIO.read(new File("lib/images/button.png"));
-            button = button.getScaledInstance(250, 110, Image.SCALE_DEFAULT);
+            button = button.getScaledInstance(350, 110, Image.SCALE_DEFAULT);
             redButton = ImageIO.read(new File("lib/images/redButton.png"));
-            redButton = redButton.getScaledInstance(250, 110, Image.SCALE_DEFAULT);
+            redButton = redButton.getScaledInstance(350, 110, Image.SCALE_DEFAULT);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "S: Error loading in image", "Seances & Salutations", JOptionPane.WARNING_MESSAGE);
         }
@@ -136,14 +135,15 @@ public class Settings extends JPanel implements MouseListener, MouseMotionListen
     public void mousePressed(MouseEvent e){
         int x = e.getX();
         int y = e.getY();
-        if(x>0 && x<470 && y>0 && y<630){
+        if(x>100 && x<400 && y>300 && y<400){
             go = 1;
-        }
-        if(x>960 && x<1366 && y>0 && y<580){
+            System.out.println("111");
+        } else if(x>500 && x<800 && y>300 && y<400){
             go = 2;
-        }
-        if(x>970 && x<1170 && y>610 && y<690){
+            System.out.println("22");
+        } else if(x>900 && x < 1200 && y>300 && y<400){
             go = 3;
+            System.out.println("13333311");
         } 
     }
 
@@ -151,13 +151,13 @@ public class Settings extends JPanel implements MouseListener, MouseMotionListen
         int x = e.getX();
         int y = e.getY();
 
-        if(x>0 && x<470 && y>0 && y<630){
+        if(x>100 && x<400 && y>300 && y<400){
             hover = 0;
             repaint();
-        } else if(x>960 && x<1366 && y>0 && y<580){
+        } else if(x>500 && x<800 && y>300 && y<400){
             hover = 1;
             repaint();
-        } else if(x>970 && x < 1170 && y>610 && y<690){
+        } else if(x>900 && x < 1200 && y>300 && y<400){
             hover = 2;
             repaint();
         } else {
@@ -179,28 +179,41 @@ public class Settings extends JPanel implements MouseListener, MouseMotionListen
         g.setFont(broadway);
 
         g.drawImage(bg, 0, 0, null);
-        g.drawImage(button, 100, 100, null);
+        
+        g.drawImage(button, 100, 300, null);
+        g.drawImage(button, 500, 300, null);
+        g.drawImage(button, 900, 300, null);
 
         switch (hover){
         case 0:
-            g.drawImage(redButton, 100, 100, null);
+            g.drawImage(redButton, 100, 300, null);
             break;
         case 1:
-            g.drawImage(redButton, 0, 0, null);
+            g.drawImage(redButton, 500, 300, null);
             break;
         case 2:
-            g.drawImage(redButton, 970, 610, null);
+            g.drawImage(redButton, 900, 300, null);
             break;
         }
 
-        g.drawString("Settings", 160, 165);
+        g.drawString("Save Game", 180, 365);
+        g.drawString("Load Last Save", 550, 365);
+        g.drawString("Exit Game", 990, 365);
+
     }
 
     public int run(){
-        while(go == -1){
+        while(go != 3){
+            if(go == 1) {
+                //sdfsdf
+                loadSave();
+            } else if (go == 2) {
+                //dfsfhskld
+                writeSave();
+            }
             revalidate();
             repaint();
         }
-        return go;
+        return 0;
     }
 }

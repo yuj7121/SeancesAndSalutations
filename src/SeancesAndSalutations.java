@@ -79,9 +79,13 @@ public class SeancesAndSalutations{///
    private int runRecipes(){
       Recipes recipes = new Recipes(collected);
       frame.add(recipes);
-      recipes.run();
+      int go = recipes.run();
       frame.remove(recipes);
-      return 0;
+      if(go == 2) {
+         return 3;
+      } else {
+         return 0;
+      }
    }
    
    private int runSettings(){
@@ -176,12 +180,11 @@ public class SeancesAndSalutations{///
       runTutorial("tutorial", "tutorial");
       
 
-      go = runHut();
+      go = 0;
 
       while (go != -1) {
          if(checkCollection()){
             go = -1;
-            //System.out.println("YHHAYY)");
             runCthulu();
             break;
          }
@@ -197,7 +200,7 @@ public class SeancesAndSalutations{///
                go = runRecipes();
                break;
             case 3: //settings
-               //go = runSettings();
+               go = runSettings();
                break;
             default: //dialogue
                collected[go] = true;
